@@ -66,12 +66,12 @@ enum
 	DIALOG_TOP, 
 	///////////////////////////////////////////|
 	DIALOG_ATTACH_INDEX,            
- 	DIALOG_ATTACH_INDEX_SELECTION,
- 	DIALOG_ATTACH_EDITREPLACE,       
- 	DIALOG_ATTACH_MODEL_SELECTION,   
+	DIALOG_ATTACH_INDEX_SELECTION,
+	DIALOG_ATTACH_EDITREPLACE,       
+	DIALOG_ATTACH_MODEL_SELECTION,   
 	DIALOG_ATTACH_BONE_SELECTION,    
- 	DIALOG_ATTACH_OBJECT_SELECTION , 
- 	DIALOG_ATTACH_OBJECT2_SELECTION 
+	DIALOG_ATTACH_OBJECT_SELECTION , 
+	DIALOG_ATTACH_OBJECT2_SELECTION 
 }
 
 //Player data
@@ -138,17 +138,17 @@ enum Data
 //////////////////////////////////////NOTE
 enum attachmentInfo
 {
-        Amodel,
-        Abone,
-        Float:AfOffsetX,
-        Float:AfOffsetY,
-        Float:AfOffsetZ,
-        Float:AfRotX,
-        Float:AfRotY,
-        Float:AfRotZ,
-        Float:AfScaleX,
-        Float:AfScaleY,
-        Float:AfScaleZ
+		Amodel,
+		Abone,
+		Float:AfOffsetX,
+		Float:AfOffsetY,
+		Float:AfOffsetZ,
+		Float:AfRotX,
+		Float:AfRotY,
+		Float:AfRotZ,
+		Float:AfScaleX,
+		Float:AfScaleY,
+		Float:AfScaleZ
 }
 static aInfo[MAX_PLAYERS][MAX_OSLOTS][attachmentInfo];
 
@@ -1454,21 +1454,21 @@ static const VehicleNames[212][] = {
 	{
 		
 		for(new i;i<MAX_OSLOTS;i++)
-        {
-            if(IsPlayerAttachedObjectSlotUsed(playerid, i))
-           {
-                aInfo[playerid][i][Amodel]=0;
-                aInfo[playerid][i][Abone]=0;
-                aInfo[playerid][i][AfOffsetX]=0;
-                aInfo[playerid][i][AfOffsetY]=0;
-                aInfo[playerid][i][AfOffsetZ]=0;
-                aInfo[playerid][i][AfRotX]=0;
-                aInfo[playerid][i][AfRotY]=0;
-                aInfo[playerid][i][AfRotZ]=0;
-                aInfo[playerid][i][AfScaleY]=0;
-                aInfo[playerid][i][AfScaleZ]=0;
-           }
-        }
+		{
+			if(IsPlayerAttachedObjectSlotUsed(playerid, i))
+		   {
+				aInfo[playerid][i][Amodel]=0;
+				aInfo[playerid][i][Abone]=0;
+				aInfo[playerid][i][AfOffsetX]=0;
+				aInfo[playerid][i][AfOffsetY]=0;
+				aInfo[playerid][i][AfOffsetZ]=0;
+				aInfo[playerid][i][AfRotX]=0;
+				aInfo[playerid][i][AfRotY]=0;
+				aInfo[playerid][i][AfRotZ]=0;
+				aInfo[playerid][i][AfScaleY]=0;
+				aInfo[playerid][i][AfScaleZ]=0;
+		   }
+		}
 		for( new i; i < _: Data; ++i ) P_INFO[ playerid ][ Data: i ] = 0;
 		
 		GetPlayerName( playerid, P_INFO[playerid][Name], MAX_PLAYER_NAME );
@@ -2321,7 +2321,7 @@ static const VehicleNames[212][] = {
 							P_INFO[playerid][Color] = COLOR_GREEN;
 						}
 					}
-					format(str, sizeof(str), "{%06x}ť You have successfully changed your nick color!", (GetPlayerColor(playerid) >>> 8));
+					format(str, sizeof(str), "{%06x}» You have successfully changed your nick color!", (GetPlayerColor(playerid) >>> 8));
 					SendClientMessage(playerid, -1, str);
 				}
 			}
@@ -2908,25 +2908,25 @@ static const VehicleNames[212][] = {
 						{
 							new bigstring[600];
 							
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /dm              "PINK"     	- "CYAN"Show lists of DM areas \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /t	           "PINK"     	- "CYAN"Shows Thelist of teleports \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /pm              "PINK"     	- "CYAN"Send a private message \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /o	           "PINK"     	- "CYAN"To Attach Objects to your skin \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /mymute          "PINK"     	- "CYAN"View your mute clock \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /mutelist        "PINK"     	- "CYAN"View list of muted players \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /settings        "PINK"     	- "CYAN"View and change your account preferences \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /pms         	   "PINK"     	- "CYAN"Toggle PMs \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /god             "PINK"     	- "CYAN"Toggle god mode \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /givemoney       "PINK"     	- "CYAN"Transfer your money to another player \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /goto            "PINK"     	- "CYAN"Teleport to someother player \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /gos       	   "PINK"     	- "CYAN"Toggle Goto \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /w               "PINK"     	- "CYAN"Change your weapon \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /color           "PINK"     	- "CYAN"Change your nick name colour \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /report          "PINK"     	- "CYAN"Report an hacker/cheater to administrators \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /admins          "PINK"     	- "CYAN"View online administrators \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /skin            "PINK"     	- "CYAN"Change your player skin  \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /kill            "PINK"     	- "CYAN"Suicide yourself \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /para        	   "PINK"     	- "CYAN"Get a parachute \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /dm              "PINK"     	- "CYAN"Show lists of DM areas \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /t	           "PINK"     	- "CYAN"Shows Thelist of teleports \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /pm              "PINK"     	- "CYAN"Send a private message \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /o	           "PINK"     	- "CYAN"To Attach Objects to your skin \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /mymute          "PINK"     	- "CYAN"View your mute clock \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /mutelist        "PINK"     	- "CYAN"View list of muted players \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /settings        "PINK"     	- "CYAN"View and change your account preferences \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /pms         	   "PINK"     	- "CYAN"Toggle PMs \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /god             "PINK"     	- "CYAN"Toggle god mode \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /givemoney       "PINK"     	- "CYAN"Transfer your money to another player \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /goto            "PINK"     	- "CYAN"Teleport to someother player \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /gos       	   "PINK"     	- "CYAN"Toggle Goto \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /w               "PINK"     	- "CYAN"Change your weapon \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /color           "PINK"     	- "CYAN"Change your nick name colour \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /report          "PINK"     	- "CYAN"Report an hacker/cheater to administrators \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /admins          "PINK"     	- "CYAN"View online administrators \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /skin            "PINK"     	- "CYAN"Change your player skin  \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /kill            "PINK"     	- "CYAN"Suicide yourself \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /para        	   "PINK"     	- "CYAN"Get a parachute \n");
 							
 							ShowPlayerDialog(playerid, DIALOG_CMDS_PLAYER, DIALOG_STYLE_MSGBOX, ""RED"BFE Player Commands", bigstring, "OK", "");
 						}
@@ -2935,12 +2935,12 @@ static const VehicleNames[212][] = {
 						{
 							new bigstring[600];
 							
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /v               "PINK"      - "CYAN"Spawn Vehicles\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /tune            "PINK"      - "CYAN"Tune Your Vehicle\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /autofix         "PINK"      - "CYAN"Toggles autofix on/off\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /vjump           "PINK"      - "CYAN"Toggles Vehicle Bounce on/off\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /nitro           "PINK"      - "CYAN"Toggles Nitro Boost on/off\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /anitfall        "PINK"      - "CYAN"Toggles AntiFall on/off\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /v               "PINK"      - "CYAN"Spawn Vehicles\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /tune            "PINK"      - "CYAN"Tune Your Vehicle\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /autofix         "PINK"      - "CYAN"Toggles autofix on/off\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /vjump           "PINK"      - "CYAN"Toggles Vehicle Bounce on/off\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /nitro           "PINK"      - "CYAN"Toggles Nitro Boost on/off\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /anitfall        "PINK"      - "CYAN"Toggles AntiFall on/off\n");
 							ShowPlayerDialog(playerid, DIALOG_CMDS_VEHICLE, DIALOG_STYLE_MSGBOX, ""RED"BFE Vehicle Commands", bigstring, "OK", "");
 						}
 						
@@ -2951,13 +2951,13 @@ static const VehicleNames[212][] = {
 							
 							new bigstring[600];
 							
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /housemenu       "PINK"      - "CYAN"To access house options\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /buyhouse        "PINK"      - "CYAN"To buy a house\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /sellhouse       "PINK"      - "CYAN"To sell your house\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /lock            "PINK"      - "CYAN"Lock your house\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /unlock          "PINK"      - "CYAN"Unlock your house\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /gohome          "PINK"      - "CYAN"Teleport to your house\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /getcar          "PINK"      - "CYAN"Get house vehicle\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /housemenu       "PINK"      - "CYAN"To access house options\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /buyhouse        "PINK"      - "CYAN"To buy a house\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /sellhouse       "PINK"      - "CYAN"To sell your house\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /lock            "PINK"      - "CYAN"Lock your house\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /unlock          "PINK"      - "CYAN"Unlock your house\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /gohome          "PINK"      - "CYAN"Teleport to your house\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /getcar          "PINK"      - "CYAN"Get house vehicle\n");
 							ShowPlayerDialog(playerid, DIALOG_CMDS_HOUSE, DIALOG_STYLE_MSGBOX, ""RED"BFE House Commands", bigstring, "OK", "");
 							
 							
@@ -2985,18 +2985,18 @@ static const VehicleNames[212][] = {
 							if(P_INFO[playerid][Admin]<1) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");
 							
 							new bigstring[600];
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /ban             "PINK"      - "CYAN"Ban a Rule breaker\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /spec            "PINK"      - "CYAN"Spectate a player\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /specoff         "PINK"      - "CYAN"Stop spectating\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /warn            "PINK"      - "CYAN"Warn a Rule breaker\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /tempban         "PINK"      - "CYAN"Ban a Rule breaker temporary\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /jail            "PINK"      - "CYAN"Jail the Rule Breaker\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /unjail          "PINK"      - "CYAN"Unjail the jailed one\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /mute            "PINK"      - "CYAN"Shut the mouth of Rule breaker \n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /unmute          "PINK"      - "CYAN"Un mute the muted one\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /gethere         "PINK"      - "CYAN"Get a plaer to Admin's location\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /announce        "PINK"      - "CYAN"Make an Announcement\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /kick            "PINK"      - "CYAN"Kick a Rule breaker\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /ban             "PINK"      - "CYAN"Ban a Rule breaker\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /spec            "PINK"      - "CYAN"Spectate a player\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /specoff         "PINK"      - "CYAN"Stop spectating\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /warn            "PINK"      - "CYAN"Warn a Rule breaker\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /tempban         "PINK"      - "CYAN"Ban a Rule breaker temporary\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /jail            "PINK"      - "CYAN"Jail the Rule Breaker\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /unjail          "PINK"      - "CYAN"Unjail the jailed one\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /mute            "PINK"      - "CYAN"Shut the mouth of Rule breaker \n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /unmute          "PINK"      - "CYAN"Un mute the muted one\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /gethere         "PINK"      - "CYAN"Get a plaer to Admin's location\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /announce        "PINK"      - "CYAN"Make an Announcement\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /kick            "PINK"      - "CYAN"Kick a Rule breaker\n");
 							
 							ShowPlayerDialog(playerid, ADMIN1, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 1 Admin Commands", bigstring, "OK", "");
 						}
@@ -3006,12 +3006,12 @@ static const VehicleNames[212][] = {
 							
 							if(P_INFO[playerid][Admin]<2) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");	
 							
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /unban           "PINK"      - "CYAN"Un Ban a player\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /akill           "PINK"      - "CYAN"Kill a player\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /freeze          "PINK"      - "CYAN"Freeze a Rule breaker\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /unfreeze        "PINK"      - "CYAN"Un Freeze the frozen one\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /disarm          "PINK"      - "CYAN"Reset a players weapon\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /worldtime       "PINK"      - "CYAN"Change server time\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /unban           "PINK"      - "CYAN"Un Ban a player\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /akill           "PINK"      - "CYAN"Kill a player\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /freeze          "PINK"      - "CYAN"Freeze a Rule breaker\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /unfreeze        "PINK"      - "CYAN"Un Freeze the frozen one\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /disarm          "PINK"      - "CYAN"Reset a players weapon\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /worldtime       "PINK"      - "CYAN"Change server time\n");
 							strcat(bigstring,""RED"+Level 1 commands");
 							ShowPlayerDialog(playerid, ADMIN2, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 2 Admin Commands", bigstring, "OK", "");
 						}
@@ -3019,8 +3019,8 @@ static const VehicleNames[212][] = {
 						{
 							new  bigstring[600];
 							if(P_INFO[playerid][Admin]<3) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /resetgod          "PINK"      - "CYAN"Reset everyone's god mode\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /unmuteall         "PINK"      - "CYAN"Unmute all mute players\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /resetgod          "PINK"      - "CYAN"Reset everyone's god mode\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /unmuteall         "PINK"      - "CYAN"Unmute all mute players\n");
 							strcat(bigstring,""RED"+Level 1 and Level 2 commands");
 							ShowPlayerDialog(playerid, ADMIN3, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 3 Admin Commands", bigstring, "OK", "");
 						}
@@ -3028,9 +3028,9 @@ static const VehicleNames[212][] = {
 						{
 							new bigstring[600];
 							if(P_INFO[playerid][Admin]<4) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /gotomb            "PINK"      - "CYAN"Goto moneybag location\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /togglemb          "PINK"      - "CYAN"Turn Money Bag on/off\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /startmb           "PINK"      - "CYAN"Start Moneybag\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /gotomb            "PINK"      - "CYAN"Goto moneybag location\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /togglemb          "PINK"      - "CYAN"Turn Money Bag on/off\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /startmb           "PINK"      - "CYAN"Start Moneybag\n");
 							strcat(bigstring,""RED"+Level 1  Level 2 and Level 3 commands");
 							ShowPlayerDialog(playerid, ADMIN4, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 4 Admin Commands", bigstring, "OK", "");
 						}
@@ -3039,8 +3039,8 @@ static const VehicleNames[212][] = {
 							new bigstring[600];
 							
 							if(P_INFO[playerid][Admin]<4) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /kickall           "PINK"      - "CYAN"Kick all player out of server\n");
-							strcat(bigstring, ""ORANGE" ?"YELLOW" /setlevel          "PINK"      - "CYAN"Set Players Admin Level\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /kickall           "PINK"      - "CYAN"Kick all player out of server\n");
+							strcat(bigstring, ""ORANGE" •"YELLOW" /setlevel          "PINK"      - "CYAN"Set Players Admin Level\n");
 							strcat(bigstring,""RED"+Level 1  Level 2  Level 3 and Level 4 commands");
 							ShowPlayerDialog(playerid, ADMIN5, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 4 Admin Commands", bigstring, "OK", "");	
 						}
@@ -3069,101 +3069,101 @@ static const VehicleNames[212][] = {
 			}
 			
 			case DIALOG_ATTACH_INDEX_SELECTION:
-        	{
-	            if(response)
-	            {
-	                if(IsPlayerAttachedObjectSlotUsed(playerid, listitem))
-	                {
-	                    ShowPlayerDialog(playerid, DIALOG_ATTACH_EDITREPLACE, DIALOG_STYLE_MSGBOX, "Player Objects/Attachment: (Delete/Edit)", ""WHITE"Do you wish to edit the attachment in that slot, or delete it?", "Edit(!)", "Delete(X)");
-	                }
-	                else
-	                {
-	                    ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT_SELECTION,DIALOG_STYLE_LIST,"Player Objects/Attachment: (Select Object Path)","Path:1 :: "GREY"Server Objects Menu\n"WHITE"Path:2 :: "GREY"Custom Object","Next(>>)","Back(<<)");
-	                }
-	                SetPVarInt(playerid, "AttachmentIndexSel", listitem);
-	            }
-            	return 1;
-        	}
-	        case DIALOG_ATTACH_OBJECT_SELECTION:
-	        {
-	            if(!response)
-	            {
-	                cmd_o(playerid,"");
-	            }
-	            if(response)
-	            {
-	                if(listitem==0) ShowModelSelectionMenuEx(playerid, AttachmentObjectsList, 228+38, "Player Objects", DIALOG_ATTACH_MODEL_SELECTION, 0.0, 0.0, 0.0, 1.0, 0x00000099, 0x000000EE, 0xACCBF1FF);
-	                if(listitem==1) ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT2_SELECTION,DIALOG_STYLE_INPUT,"Player Objects/Attachment: (Insert objectid)",""WHITE"Put your custom objectid below, You can also take help from ''http://wiki.sa-mp.com''.","Edit","Back(<<)");
-	            }
-	        }
-	        case DIALOG_ATTACH_OBJECT2_SELECTION:
-	        {
-	            if(!response)
-	            {   
-	            	ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT_SELECTION,DIALOG_STYLE_LIST,"Player Objects/Attachment: (Select Object Path)","Path:1 :: "GREY"Server Objects Menu\n"WHITE"Path:2 :: "GREY"Custom Object","Next(>>)","Back(<<)");   
-	            }
-                if(response)
-                {
-                    if(!strlen(inputtext))return SendClientMessage(playerid,-1,"PLAYER: You can't leave the coloumn blank."),ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT2_SELECTION,DIALOG_STYLE_INPUT,"Player Objects/Attachment: (Insert objectid)",""WHITE"Put your custom objectid below, You can also take help from ''http://wiki.sa-mp.com''.","Edit","Back(<<)");
-                    if(!IsNumeric(inputtext)) return SendClientMessage(playerid,-1,"PLAYER: You can't fill a object name, only object id's allowed."),ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT2_SELECTION,DIALOG_STYLE_INPUT,"Player Objects/Attachment: (Insert objectid)",""WHITE"Put your custom objectid below, You can also take help from ''http://wiki.sa-mp.com''.","Edit","Back(<<)");
-                    new obj;
-                	if(!sscanf(inputtext, "i", obj))
-                    {
-                        if(GetPVarInt(playerid, "AttachmentUsed") == 1) EditAttachedObject(playerid, obj);
-                        else
-                        {
-                            SetPVarInt(playerid, "AttachmentModelSel", obj);
-                            new string[256+1];
-                            new dialog[500];
-                            for(new x;x<sizeof(AttachmentBones);x++)
-                            {
-                                format(string, sizeof(string), "Bone:%s\n", AttachmentBones[x]);
-                                strcat(dialog,string);
-                            }
-                            ShowPlayerDialog(playerid, DIALOG_ATTACH_BONE_SELECTION, DIALOG_STYLE_LIST, \
-                            "{FF0000}Attachment Modification - Bone Selection", dialog, "Select", "Cancel");
-                        }
-                    }
-                }
-	        }
-        
-	        case DIALOG_ATTACH_EDITREPLACE:
-	        {
-	            if(response) EditAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"));
-	            
-	            else
-	            {
-	                RemovePlayerAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"));
-	                
-	               
-	                new index = GetPVarInt(playerid, "AttachmentIndexSel");
-	                new name[24];
-	                GetPlayerName(playerid,name,24);
-	                
-	                new Query[200];
-	                format(Query,sizeof(Query),"UPDATE  attachment_slot_%d SET O_Model=0,O_Bone=0,O_OffX=0.0,O_OffY=0.0,O_OffZ=0.0,O_RotX=0.0,O_RotY=0.0,O_RotZ=0.0,O_ScaleX=0.0,O_ScaleY=0.0,O_ScaleZ=0.0 WHERE userid = %d",index,P_INFO[playerid][Userid]);
-	                db_query(Database,Query);
-	                printf("index = %d",index);
-	                DeletePVar(playerid, "AttachmentIndexSel");
-	            }
-	            
-	            return 1;
-	        }
-	        
-	        case DIALOG_ATTACH_BONE_SELECTION:
-	        {
-	            if(response)
-	            {
-	                SetPlayerAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"), GetPVarInt(playerid, "AttachmentModelSel"), listitem+1);
-	                EditAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"));
-	                SendClientMessage(playerid, 0xFFFFFFFF, "PLAYER: You can also hold SPAWN and use MOUSE to view from either sides.");
-	            }
-	            DeletePVar(playerid, "AttachmentIndexSel");
-	            DeletePVar(playerid, "AttachmentModelSel");
-	            return 1;
-	        }
-    	}
-    		
+			{
+				if(response)
+				{
+					if(IsPlayerAttachedObjectSlotUsed(playerid, listitem))
+					{
+						ShowPlayerDialog(playerid, DIALOG_ATTACH_EDITREPLACE, DIALOG_STYLE_MSGBOX, "Player Objects/Attachment: (Delete/Edit)", ""WHITE"Do you wish to edit the attachment in that slot, or delete it?", "Edit(!)", "Delete(X)");
+					}
+					else
+					{
+						ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT_SELECTION,DIALOG_STYLE_LIST,"Player Objects/Attachment: (Select Object Path)","Path:1 :: "GREY"Server Objects Menu\n"WHITE"Path:2 :: "GREY"Custom Object","Next(>>)","Back(<<)");
+					}
+					SetPVarInt(playerid, "AttachmentIndexSel", listitem);
+				}
+				return 1;
+			}
+			case DIALOG_ATTACH_OBJECT_SELECTION:
+			{
+				if(!response)
+				{
+					cmd_o(playerid,"");
+				}
+				if(response)
+				{
+					if(listitem==0) ShowModelSelectionMenuEx(playerid, AttachmentObjectsList, 228+38, "Player Objects", DIALOG_ATTACH_MODEL_SELECTION, 0.0, 0.0, 0.0, 1.0, 0x00000099, 0x000000EE, 0xACCBF1FF);
+					if(listitem==1) ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT2_SELECTION,DIALOG_STYLE_INPUT,"Player Objects/Attachment: (Insert objectid)",""WHITE"Put your custom objectid below, You can also take help from ''http://wiki.sa-mp.com''.","Edit","Back(<<)");
+				}
+			}
+			case DIALOG_ATTACH_OBJECT2_SELECTION:
+			{
+				if(!response)
+				{   
+					ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT_SELECTION,DIALOG_STYLE_LIST,"Player Objects/Attachment: (Select Object Path)","Path:1 :: "GREY"Server Objects Menu\n"WHITE"Path:2 :: "GREY"Custom Object","Next(>>)","Back(<<)");   
+				}
+				if(response)
+				{
+					if(!strlen(inputtext))return SendClientMessage(playerid,-1,"PLAYER: You can't leave the coloumn blank."),ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT2_SELECTION,DIALOG_STYLE_INPUT,"Player Objects/Attachment: (Insert objectid)",""WHITE"Put your custom objectid below, You can also take help from ''http://wiki.sa-mp.com''.","Edit","Back(<<)");
+					if(!IsNumeric(inputtext)) return SendClientMessage(playerid,-1,"PLAYER: You can't fill a object name, only object id's allowed."),ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT2_SELECTION,DIALOG_STYLE_INPUT,"Player Objects/Attachment: (Insert objectid)",""WHITE"Put your custom objectid below, You can also take help from ''http://wiki.sa-mp.com''.","Edit","Back(<<)");
+					new obj;
+					if(!sscanf(inputtext, "i", obj))
+					{
+						if(GetPVarInt(playerid, "AttachmentUsed") == 1) EditAttachedObject(playerid, obj);
+						else
+						{
+							SetPVarInt(playerid, "AttachmentModelSel", obj);
+							new string[256+1];
+							new dialog[500];
+							for(new x;x<sizeof(AttachmentBones);x++)
+							{
+								format(string, sizeof(string), "Bone:%s\n", AttachmentBones[x]);
+								strcat(dialog,string);
+							}
+							ShowPlayerDialog(playerid, DIALOG_ATTACH_BONE_SELECTION, DIALOG_STYLE_LIST, \
+							"{FF0000}Attachment Modification - Bone Selection", dialog, "Select", "Cancel");
+						}
+					}
+				}
+			}
+		
+			case DIALOG_ATTACH_EDITREPLACE:
+			{
+				if(response) EditAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"));
+				
+				else
+				{
+					RemovePlayerAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"));
+					
+				   
+					new index = GetPVarInt(playerid, "AttachmentIndexSel");
+					new name[24];
+					GetPlayerName(playerid,name,24);
+					
+					new Query[200];
+					format(Query,sizeof(Query),"UPDATE  attachment_slot_%d SET O_Model=0,O_Bone=0,O_OffX=0.0,O_OffY=0.0,O_OffZ=0.0,O_RotX=0.0,O_RotY=0.0,O_RotZ=0.0,O_ScaleX=0.0,O_ScaleY=0.0,O_ScaleZ=0.0 WHERE userid = %d",index,P_INFO[playerid][Userid]);
+					db_query(Database,Query);
+					printf("index = %d",index);
+					DeletePVar(playerid, "AttachmentIndexSel");
+				}
+				
+				return 1;
+			}
+			
+			case DIALOG_ATTACH_BONE_SELECTION:
+			{
+				if(response)
+				{
+					SetPlayerAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"), GetPVarInt(playerid, "AttachmentModelSel"), listitem+1);
+					EditAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"));
+					SendClientMessage(playerid, 0xFFFFFFFF, "PLAYER: You can also hold SPAWN and use MOUSE to view from either sides.");
+				}
+				DeletePVar(playerid, "AttachmentIndexSel");
+				DeletePVar(playerid, "AttachmentModelSel");
+				return 1;
+			}
+		}
+			
 		
 		return 1;
 	}
@@ -3209,29 +3209,29 @@ static const VehicleNames[212][] = {
 		
 				
 		if(extraid == DIALOG_ATTACH_MODEL_SELECTION)
-        {
-            if(!response)
-        	{   
-        		ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT_SELECTION,DIALOG_STYLE_LIST,"Player Objects/Attachment: (Select Object Path)","Path:1 :: "GREY"Server Objects Menu\n"WHITE"Path:2 :: "GREY"Custom Object","Next(>>)","Back(<<)"); 
-        	}
-            if(response)
-            {
-                    if(GetPVarInt(playerid, "AttachmentUsed") == 1) EditAttachedObject(playerid, modelid);
-                    else
-                    {
-                        SetPVarInt(playerid, "AttachmentModelSel", modelid);
-            			new string[256+1];
-                        new dialog[500];
-                        for(new x;x<sizeof(AttachmentBones);x++)
-                    	{
-                            format(string, sizeof(string), "Bone:%s\n", AttachmentBones[x]);
-                            strcat(dialog,string);
-                        }
-                        ShowPlayerDialog(playerid, DIALOG_ATTACH_BONE_SELECTION, DIALOG_STYLE_LIST, \
-                        "{FF0000}Attachment Modification - Bone Selection", dialog, "Select", "Cancel");
-                    }//else DeletePVar(playerid, "AttachmentIndexSel");
-            }
-        }
+		{
+			if(!response)
+			{   
+				ShowPlayerDialog(playerid,DIALOG_ATTACH_OBJECT_SELECTION,DIALOG_STYLE_LIST,"Player Objects/Attachment: (Select Object Path)","Path:1 :: "GREY"Server Objects Menu\n"WHITE"Path:2 :: "GREY"Custom Object","Next(>>)","Back(<<)"); 
+			}
+			if(response)
+			{
+					if(GetPVarInt(playerid, "AttachmentUsed") == 1) EditAttachedObject(playerid, modelid);
+					else
+					{
+						SetPVarInt(playerid, "AttachmentModelSel", modelid);
+						new string[256+1];
+						new dialog[500];
+						for(new x;x<sizeof(AttachmentBones);x++)
+						{
+							format(string, sizeof(string), "Bone:%s\n", AttachmentBones[x]);
+							strcat(dialog,string);
+						}
+						ShowPlayerDialog(playerid, DIALOG_ATTACH_BONE_SELECTION, DIALOG_STYLE_LIST, \
+						"{FF0000}Attachment Modification - Bone Selection", dialog, "Select", "Cancel");
+					}//else DeletePVar(playerid, "AttachmentIndexSel");
+			}
+		}
 		
 		return 1;
 	}
@@ -3301,12 +3301,12 @@ static const VehicleNames[212][] = {
 		
 		
 		for(new i=0;i<MAX_OSLOTS;i++)
-        {                      
-            if(aInfo[playerid][i][Amodel] !=0)
-            {
-                SetPlayerAttachedObject(playerid,i,aInfo[playerid][i][Amodel],aInfo[playerid][i][Abone],aInfo[playerid][i][AfOffsetX],aInfo[playerid][i][AfOffsetY],aInfo[playerid][i][AfOffsetZ],aInfo[playerid][i][AfRotX],aInfo[playerid][i][AfRotY],aInfo[playerid][i][AfRotZ],aInfo[playerid][i][AfScaleX],aInfo[playerid][i][AfScaleY],aInfo[playerid][i][AfScaleZ]);
-            }
-        }
+		{                      
+			if(aInfo[playerid][i][Amodel] !=0)
+			{
+				SetPlayerAttachedObject(playerid,i,aInfo[playerid][i][Amodel],aInfo[playerid][i][Abone],aInfo[playerid][i][AfOffsetX],aInfo[playerid][i][AfOffsetY],aInfo[playerid][i][AfOffsetZ],aInfo[playerid][i][AfRotX],aInfo[playerid][i][AfRotY],aInfo[playerid][i][AfRotZ],aInfo[playerid][i][AfScaleX],aInfo[playerid][i][AfScaleY],aInfo[playerid][i][AfScaleZ]);
+			}
+		}
 		
 		return 1;
 	}
@@ -4093,24 +4093,24 @@ static const VehicleNames[212][] = {
 	}
 	
 	
-	/////NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE
+	
 	
 	CMD:o(playerid,params[])
 	{
-        new string[128];
-        new dialog[500];
-        for(new i;i<MAX_OSLOTS;i++)
-        {
-        	if(IsPlayerAttachedObjectSlotUsed(playerid, i))
-            {       
-               	format(string, sizeof(string), ""WHITE"Slot:%d :: "GREEN"Used Slot\n", i);   
-            }
-            else 
-            	format(string, sizeof(string), ""WHITE"Slot:%d\n", i);
-            strcat(dialog,string);
-        }
-        ShowPlayerDialog(playerid, DIALOG_ATTACH_INDEX_SELECTION, DIALOG_STYLE_LIST,"Player Objects/Attachment: (Select Slot)", dialog, "Select", "Close(X)");
-        return 1;
+		new string[128];
+		new dialog[500];
+		for(new i;i<MAX_OSLOTS;i++)
+		{
+			if(IsPlayerAttachedObjectSlotUsed(playerid, i))
+			{       
+				format(string, sizeof(string), ""WHITE"Slot:%d :: "GREEN"Used Slot\n", i);   
+			}
+			else 
+				format(string, sizeof(string), ""WHITE"Slot:%d\n", i);
+			strcat(dialog,string);
+		}
+		ShowPlayerDialog(playerid, DIALOG_ATTACH_INDEX_SELECTION, DIALOG_STYLE_LIST,"Player Objects/Attachment: (Select Slot)", dialog, "Select", "Close(X)");
+		return 1;
 	}
 
 
@@ -4803,15 +4803,15 @@ static const VehicleNames[212][] = {
 		
 		switch (P_INFO[playerid][inDMZone])
 		{
-   			case 1:
+			case 1:
 			{
-    			Random = random(sizeof(RandomSpawnsDE));
+				Random = random(sizeof(RandomSpawnsDE));
 				createdm(playerid,RandomSpawnsDE[Random][0], RandomSpawnsDE[Random][1], RandomSpawnsDE[Random][2], RandomSpawnsDE[Random][3],3,1,1,24,25,100,"");
 			}
 			
 			case 2:
 			{
-   				Random = random(sizeof(RandomSpawnsRW));
+				Random = random(sizeof(RandomSpawnsRW));
 				createdm(playerid,RandomSpawnsRW[Random][0], RandomSpawnsRW[Random][1], RandomSpawnsRW[Random][2], RandomSpawnsRW[Random][3],1,2,2,26,28,100,"");
 				
 			}
@@ -4820,11 +4820,11 @@ static const VehicleNames[212][] = {
 			{
 				Random = random(sizeof(RandomSpawnsSOS));
 				createdm(playerid,RandomSpawnsRW[Random][0], RandomSpawnsSOS[Random][1], RandomSpawnsSOS[Random][2], RandomSpawnsSOS[Random][3],10,2,3,26,32,100,"");
-   			}
+			}
 			
 			case 4:
 			{
-    			Random = random(sizeof(RandomSpawnsSNIPE));
+				Random = random(sizeof(RandomSpawnsSNIPE));
 				createdm(playerid,RandomSpawnsSNIPE[Random][0], RandomSpawnsSNIPE[Random][1], RandomSpawnsSNIPE[Random][2], RandomSpawnsSNIPE[Random][3],3,4,4,25,34,100,"");
 			}
 			case 5:
@@ -4855,7 +4855,7 @@ static const VehicleNames[212][] = {
 	
 	
 	
- 	TeleportPlayer (playerid, Float:X, Float:Y, Float:Z, Float:A, interior, virtualworld)
+	TeleportPlayer (playerid, Float:X, Float:Y, Float:Z, Float:A, interior, virtualworld)
 	{
 		if (GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
 		{
@@ -5075,91 +5075,92 @@ static const VehicleNames[212][] = {
 	
 	IsNumeric(string[])
 	{
-        for (new i = 0, j = strlen(string); i < j; i++)
-        {
-                if (string[i] > '9' || string[i] < '0') return 0;
-        }
-        return 1;
+		for (new i = 0, j = strlen(string); i < j; i++)
+		{
+				if (string[i] > '9' || string[i] < '0') return 0;
+		}
+		return 1;
 	}
 	
 	
 	Load_Attachments(playerid)
 	{
-        new Query[400],DBResult:Result;
-        
-        for(new i; i < MAX_OSLOTS; i++)
-        {
-            
-            format(Query,sizeof(Query),"SELECT * FROM attachment_slot_%d WHERE userid = %d",i,P_INFO[playerid][Userid]);
-            Result = db_query(Database,Query);
-            
-            if(db_num_rows(Result))
-            {
-	            aInfo[playerid][i][Amodel]		= db_get_field_assoc_int(Result,"O_Model");
-	            aInfo[playerid][i][Abone] 		= db_get_field_assoc_int(Result,"O_Bone");
-	            aInfo[playerid][i][AfOffsetX] 	= db_get_field_assoc_float(Result,"O_OffX");
-	            aInfo[playerid][i][AfOffsetY]	= db_get_field_assoc_float(Result,"O_OffY");
-	            aInfo[playerid][i][AfOffsetZ]	= db_get_field_assoc_float(Result,"O_OffZ");
-	            aInfo[playerid][i][AfRotX]		= db_get_field_assoc_float(Result,"O_RotX");
-	            aInfo[playerid][i][AfRotY]		= db_get_field_assoc_float(Result,"O_RotY");
-	            aInfo[playerid][i][AfRotZ]		= db_get_field_assoc_float(Result,"O_RotZ");
-	            aInfo[playerid][i][AfScaleX]	= db_get_field_assoc_float(Result,"O_ScaleX");
-	        	aInfo[playerid][i][AfScaleY]	= db_get_field_assoc_float(Result,"O_ScaleY");
-	        	aInfo[playerid][i][AfScaleZ]	= db_get_field_assoc_float(Result,"O_ScaleZ");
-        	}
-        }
+		new Query[400],DBResult:Result;
+		
+		for(new i; i < MAX_OSLOTS; i++)
+		{
+			
+			format(Query,sizeof(Query),"SELECT * FROM attachment_slot_%d WHERE userid = %d",i,P_INFO[playerid][Userid]);
+			Result = db_query(Database,Query);
+			
+			if(db_num_rows(Result))
+			{
+				aInfo[playerid][i][Amodel]		= db_get_field_assoc_int(Result,"O_Model");
+				aInfo[playerid][i][Abone] 		= db_get_field_assoc_int(Result,"O_Bone");
+				aInfo[playerid][i][AfOffsetX] 	= db_get_field_assoc_float(Result,"O_OffX");
+				aInfo[playerid][i][AfOffsetY]	= db_get_field_assoc_float(Result,"O_OffY");
+				aInfo[playerid][i][AfOffsetZ]	= db_get_field_assoc_float(Result,"O_OffZ");
+				aInfo[playerid][i][AfRotX]		= db_get_field_assoc_float(Result,"O_RotX");
+				aInfo[playerid][i][AfRotY]		= db_get_field_assoc_float(Result,"O_RotY");
+				aInfo[playerid][i][AfRotZ]		= db_get_field_assoc_float(Result,"O_RotZ");
+				aInfo[playerid][i][AfScaleX]	= db_get_field_assoc_float(Result,"O_ScaleX");
+				aInfo[playerid][i][AfScaleY]	= db_get_field_assoc_float(Result,"O_ScaleY");
+				aInfo[playerid][i][AfScaleZ]	= db_get_field_assoc_float(Result,"O_ScaleZ");
+			}
+		}
 
-        return 1;
+		return 1;
 	}
 
 	public OnPlayerEditAttachedObject( playerid, response, index, modelid, boneid,Float:fOffsetX, Float:fOffsetY, Float:fOffsetZ,Float:fRotX, Float:fRotY, Float:fRotZ,Float:fScaleX, Float:fScaleY, Float:fScaleZ )
 	{
-    	new debug_string[256+1];
-        
-        format(debug_string,256,"SetPlayerAttachedObject(playerid,%d,%d,%d,%f,%f,%f,%f,%f,%f,%f,%f,%f)",
-        index,modelid,boneid,fOffsetX,fOffsetY,fOffsetZ,fRotX,fRotY,fRotZ,fScaleX,fScaleY,fScaleZ);
+		new debug_string[256+1];
+		
+		format(debug_string,256,"SetPlayerAttachedObject(playerid,%d,%d,%d,%f,%f,%f,%f,%f,%f,%f,%f,%f)",
+		index,modelid,boneid,fOffsetX,fOffsetY,fOffsetZ,fRotX,fRotY,fRotZ,fScaleX,fScaleY,fScaleZ);
  
-	    SetPlayerAttachedObject(playerid,index,modelid,boneid,fOffsetX,fOffsetY,fOffsetZ,fRotX,fRotY,fRotZ,fScaleX,fScaleY,fScaleZ);
-	    SendClientMessage(playerid, 0xFFFFFFFF, "PLAYER: You have finished editing attachments, it has been saved to your database.");
+		SetPlayerAttachedObject(playerid,index,modelid,boneid,fOffsetX,fOffsetY,fOffsetZ,fRotX,fRotY,fRotZ,fScaleX,fScaleY,fScaleZ);
+		SendClientMessage(playerid, 0xFFFFFFFF, "PLAYER: You have finished editing attachments, it has been saved to your database.");
 	 
-	    new file[256];
-	    new name[24];
-	    GetPlayerName(playerid,name,24);
-	    format(file,sizeof(file),"Player Objects/%s.ini",name);
-	    
-    	
-    	new Query[400];
+		new file[256];
+		new name[24];
+		GetPlayerName(playerid,name,24);
+		format(file,sizeof(file),"Player Objects/%s.ini",name);
+		
+		
+		new Query[400];
 
-    	format(Query,sizeof(Query),"UPDATE attachment_slot_%d SET \
-											    		O_Model = %d,\
-											    		O_Bone = %d,\
-											    		O_OffX = %f,\
-											    		O_OffY = %f ,\
-											    		O_OffZ = %f,\
-											    		O_RotX = %f,\
-											    		O_RotY = %f,\
-											    		O_RotZ = %f,\
-											    		O_ScaleX = %f,\
-											    		O_ScaleY = %f,\
-											    		O_ScaleZ = %f \
-											    		WHERE userid = %d",
-											    		index,
-											    		modelid,
-											    		boneid,
-											    		fOffsetX,
-											    		fOffsetX,
-											    		fOffsetX,
-											    		fRotX,
-											    		fRotX,
-											    		fRotX,
-											    		fScaleX,
-											    		fScaleX,
-											    		fScaleX,
-											    		P_INFO[playerid][Userid]);
-    	db_query(Database,Query);
+		format(Query,sizeof(Query),"UPDATE attachment_slot_%d SET \
+														O_Model = %d,\
+														O_Bone = %d,\
+														O_OffX = %f,\
+														O_OffY = %f ,\
+														O_OffZ = %f,\
+														O_RotX = %f,\
+														O_RotY = %f,\
+														O_RotZ = %f,\
+														O_ScaleX = %f,\
+														O_ScaleY = %f,\
+														O_ScaleZ = %f \
+														WHERE userid = %d",
+														index,
+														modelid,
+														boneid,
+														fOffsetX,
+														fOffsetX,
+														fOffsetX,
+														fRotX,
+														fRotX,
+														fRotX,
+														fScaleX,
+														fScaleX,
+														fScaleX,
+														P_INFO[playerid][Userid]);
+		db_query(Database,Query);
 
 
-    	return 1;
+		return 1;
 	}
+	
 	
 	
