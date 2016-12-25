@@ -2321,7 +2321,7 @@ static const VehicleNames[212][] = {
 							P_INFO[playerid][Color] = COLOR_GREEN;
 						}
 					}
-					format(str, sizeof(str), "{%06x}» You have successfully changed your nick color!", (GetPlayerColor(playerid) >>> 8));
+					format(str, sizeof(str), "{%06x}ť You have successfully changed your nick color!", (GetPlayerColor(playerid) >>> 8));
 					SendClientMessage(playerid, -1, str);
 				}
 			}
@@ -2908,25 +2908,25 @@ static const VehicleNames[212][] = {
 						{
 							new bigstring[600];
 							
-							strcat(bigstring, ""ORANGE" •"YELLOW" /dm              "PINK"     	- "CYAN"Show lists of DM areas \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /t	           "PINK"     	- "CYAN"Shows Thelist of teleports \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /pm              "PINK"     	- "CYAN"Send a private message \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /o	           "PINK"     	- "CYAN"To Attach Objects to your skin \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /mymute          "PINK"     	- "CYAN"View your mute clock \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /mutelist        "PINK"     	- "CYAN"View list of muted players \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /settings        "PINK"     	- "CYAN"View and change your account preferences \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /pms         	   "PINK"     	- "CYAN"Toggle PMs \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /god             "PINK"     	- "CYAN"Toggle god mode \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /givemoney       "PINK"     	- "CYAN"Transfer your money to another player \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /goto            "PINK"     	- "CYAN"Teleport to someother player \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /gos       	   "PINK"     	- "CYAN"Toggle Goto \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /w               "PINK"     	- "CYAN"Change your weapon \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /color           "PINK"     	- "CYAN"Change your nick name colour \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /report          "PINK"     	- "CYAN"Report an hacker/cheater to administrators \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /admins          "PINK"     	- "CYAN"View online administrators \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /skin            "PINK"     	- "CYAN"Change your player skin  \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /kill            "PINK"     	- "CYAN"Suicide yourself \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /para        	   "PINK"     	- "CYAN"Get a parachute \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /dm              "PINK"     	- "CYAN"Show lists of DM areas \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /t	           "PINK"     	- "CYAN"Shows Thelist of teleports \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /pm              "PINK"     	- "CYAN"Send a private message \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /o	           "PINK"     	- "CYAN"To Attach Objects to your skin \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /mymute          "PINK"     	- "CYAN"View your mute clock \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /mutelist        "PINK"     	- "CYAN"View list of muted players \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /settings        "PINK"     	- "CYAN"View and change your account preferences \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /pms         	   "PINK"     	- "CYAN"Toggle PMs \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /god             "PINK"     	- "CYAN"Toggle god mode \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /givemoney       "PINK"     	- "CYAN"Transfer your money to another player \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /goto            "PINK"     	- "CYAN"Teleport to someother player \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /gos       	   "PINK"     	- "CYAN"Toggle Goto \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /w               "PINK"     	- "CYAN"Change your weapon \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /color           "PINK"     	- "CYAN"Change your nick name colour \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /report          "PINK"     	- "CYAN"Report an hacker/cheater to administrators \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /admins          "PINK"     	- "CYAN"View online administrators \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /skin            "PINK"     	- "CYAN"Change your player skin  \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /kill            "PINK"     	- "CYAN"Suicide yourself \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /para        	   "PINK"     	- "CYAN"Get a parachute \n");
 							
 							ShowPlayerDialog(playerid, DIALOG_CMDS_PLAYER, DIALOG_STYLE_MSGBOX, ""RED"BFE Player Commands", bigstring, "OK", "");
 						}
@@ -2935,12 +2935,12 @@ static const VehicleNames[212][] = {
 						{
 							new bigstring[600];
 							
-							strcat(bigstring, ""ORANGE" •"YELLOW" /v               "PINK"      - "CYAN"Spawn Vehicles\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /tune            "PINK"      - "CYAN"Tune Your Vehicle\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /autofix         "PINK"      - "CYAN"Toggles autofix on/off\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /vjump           "PINK"      - "CYAN"Toggles Vehicle Bounce on/off\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /nitro           "PINK"      - "CYAN"Toggles Nitro Boost on/off\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /anitfall        "PINK"      - "CYAN"Toggles AntiFall on/off\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /v               "PINK"      - "CYAN"Spawn Vehicles\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /tune            "PINK"      - "CYAN"Tune Your Vehicle\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /autofix         "PINK"      - "CYAN"Toggles autofix on/off\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /vjump           "PINK"      - "CYAN"Toggles Vehicle Bounce on/off\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /nitro           "PINK"      - "CYAN"Toggles Nitro Boost on/off\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /anitfall        "PINK"      - "CYAN"Toggles AntiFall on/off\n");
 							ShowPlayerDialog(playerid, DIALOG_CMDS_VEHICLE, DIALOG_STYLE_MSGBOX, ""RED"BFE Vehicle Commands", bigstring, "OK", "");
 						}
 						
@@ -2951,13 +2951,13 @@ static const VehicleNames[212][] = {
 							
 							new bigstring[600];
 							
-							strcat(bigstring, ""ORANGE" •"YELLOW" /housemenu       "PINK"      - "CYAN"To access house options\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /buyhouse        "PINK"      - "CYAN"To buy a house\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /sellhouse       "PINK"      - "CYAN"To sell your house\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /lock            "PINK"      - "CYAN"Lock your house\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /unlock          "PINK"      - "CYAN"Unlock your house\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /gohome          "PINK"      - "CYAN"Teleport to your house\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /getcar          "PINK"      - "CYAN"Get house vehicle\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /housemenu       "PINK"      - "CYAN"To access house options\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /buyhouse        "PINK"      - "CYAN"To buy a house\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /sellhouse       "PINK"      - "CYAN"To sell your house\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /lock            "PINK"      - "CYAN"Lock your house\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /unlock          "PINK"      - "CYAN"Unlock your house\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /gohome          "PINK"      - "CYAN"Teleport to your house\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /getcar          "PINK"      - "CYAN"Get house vehicle\n");
 							ShowPlayerDialog(playerid, DIALOG_CMDS_HOUSE, DIALOG_STYLE_MSGBOX, ""RED"BFE House Commands", bigstring, "OK", "");
 							
 							
@@ -2985,18 +2985,18 @@ static const VehicleNames[212][] = {
 							if(P_INFO[playerid][Admin]<1) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");
 							
 							new bigstring[600];
-							strcat(bigstring, ""ORANGE" •"YELLOW" /ban             "PINK"      - "CYAN"Ban a Rule breaker\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /spec            "PINK"      - "CYAN"Spectate a player\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /specoff         "PINK"      - "CYAN"Stop spectating\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /warn            "PINK"      - "CYAN"Warn a Rule breaker\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /tempban         "PINK"      - "CYAN"Ban a Rule breaker temporary\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /jail            "PINK"      - "CYAN"Jail the Rule Breaker\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /unjail          "PINK"      - "CYAN"Unjail the jailed one\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /mute            "PINK"      - "CYAN"Shut the mouth of Rule breaker \n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /unmute          "PINK"      - "CYAN"Un mute the muted one\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /gethere         "PINK"      - "CYAN"Get a plaer to Admin's location\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /announce        "PINK"      - "CYAN"Make an Announcement\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /kick            "PINK"      - "CYAN"Kick a Rule breaker\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /ban             "PINK"      - "CYAN"Ban a Rule breaker\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /spec            "PINK"      - "CYAN"Spectate a player\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /specoff         "PINK"      - "CYAN"Stop spectating\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /warn            "PINK"      - "CYAN"Warn a Rule breaker\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /tempban         "PINK"      - "CYAN"Ban a Rule breaker temporary\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /jail            "PINK"      - "CYAN"Jail the Rule Breaker\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /unjail          "PINK"      - "CYAN"Unjail the jailed one\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /mute            "PINK"      - "CYAN"Shut the mouth of Rule breaker \n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /unmute          "PINK"      - "CYAN"Un mute the muted one\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /gethere         "PINK"      - "CYAN"Get a plaer to Admin's location\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /announce        "PINK"      - "CYAN"Make an Announcement\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /kick            "PINK"      - "CYAN"Kick a Rule breaker\n");
 							
 							ShowPlayerDialog(playerid, ADMIN1, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 1 Admin Commands", bigstring, "OK", "");
 						}
@@ -3006,12 +3006,12 @@ static const VehicleNames[212][] = {
 							
 							if(P_INFO[playerid][Admin]<2) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");	
 							
-							strcat(bigstring, ""ORANGE" •"YELLOW" /unban           "PINK"      - "CYAN"Un Ban a player\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /akill           "PINK"      - "CYAN"Kill a player\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /freeze          "PINK"      - "CYAN"Freeze a Rule breaker\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /unfreeze        "PINK"      - "CYAN"Un Freeze the frozen one\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /disarm          "PINK"      - "CYAN"Reset a players weapon\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /worldtime       "PINK"      - "CYAN"Change server time\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /unban           "PINK"      - "CYAN"Un Ban a player\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /akill           "PINK"      - "CYAN"Kill a player\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /freeze          "PINK"      - "CYAN"Freeze a Rule breaker\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /unfreeze        "PINK"      - "CYAN"Un Freeze the frozen one\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /disarm          "PINK"      - "CYAN"Reset a players weapon\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /worldtime       "PINK"      - "CYAN"Change server time\n");
 							strcat(bigstring,""RED"+Level 1 commands");
 							ShowPlayerDialog(playerid, ADMIN2, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 2 Admin Commands", bigstring, "OK", "");
 						}
@@ -3019,8 +3019,8 @@ static const VehicleNames[212][] = {
 						{
 							new  bigstring[600];
 							if(P_INFO[playerid][Admin]<3) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /resetgod          "PINK"      - "CYAN"Reset everyone's god mode\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /unmuteall         "PINK"      - "CYAN"Unmute all mute players\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /resetgod          "PINK"      - "CYAN"Reset everyone's god mode\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /unmuteall         "PINK"      - "CYAN"Unmute all mute players\n");
 							strcat(bigstring,""RED"+Level 1 and Level 2 commands");
 							ShowPlayerDialog(playerid, ADMIN3, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 3 Admin Commands", bigstring, "OK", "");
 						}
@@ -3028,9 +3028,9 @@ static const VehicleNames[212][] = {
 						{
 							new bigstring[600];
 							if(P_INFO[playerid][Admin]<4) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /gotomb            "PINK"      - "CYAN"Goto moneybag location\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /togglemb          "PINK"      - "CYAN"Turn Money Bag on/off\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /startmb           "PINK"      - "CYAN"Start Moneybag\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /gotomb            "PINK"      - "CYAN"Goto moneybag location\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /togglemb          "PINK"      - "CYAN"Turn Money Bag on/off\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /startmb           "PINK"      - "CYAN"Start Moneybag\n");
 							strcat(bigstring,""RED"+Level 1  Level 2 and Level 3 commands");
 							ShowPlayerDialog(playerid, ADMIN4, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 4 Admin Commands", bigstring, "OK", "");
 						}
@@ -3039,8 +3039,8 @@ static const VehicleNames[212][] = {
 							new bigstring[600];
 							
 							if(P_INFO[playerid][Admin]<4) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not authorised to access this section!");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /kickall           "PINK"      - "CYAN"Kick all player out of server\n");
-							strcat(bigstring, ""ORANGE" •"YELLOW" /setlevel          "PINK"      - "CYAN"Set Players Admin Level\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /kickall           "PINK"      - "CYAN"Kick all player out of server\n");
+							strcat(bigstring, ""ORANGE" ?"YELLOW" /setlevel          "PINK"      - "CYAN"Set Players Admin Level\n");
 							strcat(bigstring,""RED"+Level 1  Level 2  Level 3 and Level 4 commands");
 							ShowPlayerDialog(playerid, ADMIN5, DIALOG_STYLE_MSGBOX, ""RED"BFE Level 4 Admin Commands", bigstring, "OK", "");	
 						}
@@ -4093,7 +4093,7 @@ static const VehicleNames[212][] = {
 	}
 	
 	
-	
+	/////NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE NOTE
 	
 	CMD:o(playerid,params[])
 	{
