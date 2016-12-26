@@ -1,26 +1,26 @@
 /*
 
-															MIT License
+								MIT License
 
-														Copyright (c) 2016 Sreyas
+							Copyright (c) 2016 Sreyas
 
-								Permission is hereby granted, free of charge, to any person obtaining a copy
-								of this software and associated documentation files (the "Software"), to deal
-								in the Software without restriction, including without limitation the rights
-								to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-								copies of the Software, and to permit persons to whom the Software is
-								furnished to do so, subject to the following conditions:
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
 
-								The above copyright notice and this permission notice shall be included in all
-								copies or substantial portions of the Software.
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
 
-								THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-								IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-								FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-								AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-								LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-								OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-								SOFTWARE.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
 */
 //includes
 #include <a_samp>
@@ -1287,20 +1287,20 @@ static const VehicleNames[212][] = {
 		
 		for(new i ;i<MAX_ATTACH_SLOTS;i++)
 		{
-			format(d_Query,sizeof(d_Query),"CREATE TABLE IF NOT EXISTS `attachment_slot_%d` (\
-																				`userid`	INTEGER PRIMARY KEY AUTOINCREMENT,\
-																				`O_Model`	TINYINT DEFAULT 0,\
-																				`O_Bone`	TINYINT DEFAULT 0,\
-																				`O_OffX`	FLOAT DEFAULT 0,\
-																				`O_OffY`	FLOAT DEFAULT 0,\
-																				`O_OffZ`	FLOAT DEFAULT 0,\
-																				`O_RotX`	FLOAT DEFAULT 0,\
-																				`O_RotY`	FLOAT DEFAULT 0,\
-																				`O_RotZ`	FLOAT DEFAULT 0,\
-																				`O_ScaleX`	FLOAT DEFAULT 0,\
-																				`O_ScaleY`	FLOAT DEFAULT 0,\
-																				`O_ScaleZ`	FLOAT DEFAULT 0\
-																			)",i);
+			format(d_Query,sizeof(d_Query),"\
+			CREATE TABLE IF NOT EXISTS `attachment_slot_%d` (\
+			`userid`    INTEGER PRIMARY KEY AUTOINCREMENT,\
+			`O_Model`   TINYINT DEFAULT 0,\
+			`O_Bone`    TINYINT DEFAULT 0,\
+			`O_OffX`    FLOAT DEFAULT 0,\
+			`O_OffY`    FLOAT DEFAULT 0,\
+			`O_OffZ`    FLOAT DEFAULT 0,\
+			`O_RotX`    FLOAT DEFAULT 0,\
+			`O_RotY`    FLOAT DEFAULT 0,\
+			`O_RotZ`    FLOAT DEFAULT 0,\
+			`O_ScaleX`  FLOAT DEFAULT 0,\
+			`O_ScaleY`  FLOAT DEFAULT 0,\
+			`O_ScaleZ`  FLOAT DEFAULT 0)",i);
 			db_query(Database,d_Query);
 
 		}
@@ -2120,7 +2120,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 						case 1: return ShowPlayerDialog(playerid,PSETTINGS,DIALOG_STYLE_LIST,""ORANGE"BFE Player Settings", "Change Skin \nPrivate Messages [on/off] \nGoto [on/off] \nGod Mode[on/off]\nChange Nick Color", "Select", "Cancel");
 						case 2: return ShowPlayerDialog(playerid,VSETTINGS,DIALOG_STYLE_LIST,""ORANGE"BFE Vehicle Settings", "Nitro [on/off] \nAuto Fix [on/off] \nBounce [on/off] \nAnti Fall [on/off] \nTune Your Car ", "Select", "Cancel");
 						case 3: return cmd_gcp(playerid);
-					}	
+					}   
 				}
 			}
 			case DIALOG_ACCOUNT:
@@ -5768,7 +5768,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 
 			P_INFO[playerid][creatingzone] = false;
 			P_INFO[playerid][gangid] = db_get_field_assoc_int( Result, "gangid");
-			printf("gangmember = %d leader = %d gang name = %s id =%d",P_INFO[playerid][gangmember],P_INFO[playerid][gangleader],P_INFO[playerid][gangname],P_INFO[playerid][gangid]);	
+			printf("gangmember = %d leader = %d gang name = %s id =%d",P_INFO[playerid][gangmember],P_INFO[playerid][gangleader],P_INFO[playerid][gangname],P_INFO[playerid][gangid]);  
 			if(P_INFO[playerid][gangmember] == 1)
 			{
 				new str[128];
@@ -5811,8 +5811,8 @@ public OnPlayerLeaveArea(playerid, areaid)
 
 			}
 		}
-		return 1; 	
-	}	
+		return 1;   
+	}   
 	
 
 
