@@ -1258,6 +1258,34 @@ static const VehicleNames[212][] = {
 		Trailers = LoadModelSelectionMenu("Trailers.txt");
 		Unique = LoadModelSelectionMenu("Unique Vehicles.txt");
 		
+		//Database
+
+		Database = db_open( "server.db" );
+		db_query( Database, "PRAGMA synchronous = OFF" );
+		
+		new d_Query[400];
+		
+		for(new i ;i<MAX_ATTACH_SLOTS;i++)
+		{
+			format(d_Query,sizeof(d_Query),"CREATE TABLE IF NOT EXISTS `attachment_slot_%d` (\
+																				`userid`	INTEGER PRIMARY KEY AUTOINCREMENT,\
+																				`O_Model`	TINYINT DEFAULT 0,\
+																				`O_Bone`	TINYINT DEFAULT 0,\
+																				`O_OffX`	FLOAT DEFAULT 0,\
+																				`O_OffY`	FLOAT DEFAULT 0,\
+																				`O_OffZ`	FLOAT DEFAULT 0,\
+																				`O_RotX`	FLOAT DEFAULT 0,\
+																				`O_RotY`	FLOAT DEFAULT 0,\
+																				`O_RotZ`	FLOAT DEFAULT 0,\
+																				`O_ScaleX`	FLOAT DEFAULT 0,\
+																				`O_ScaleY`	FLOAT DEFAULT 0,\
+																				`O_ScaleZ`	FLOAT DEFAULT 0\
+																			)",i);
+			db_query(Database,d_Query);
+
+		}
+		
+		
 		//TEXT DRAWSSSSSSSSSSS//////////////////////////////////////////////////
 		
 		BFE_TD[0] = TextDrawCreate(314.765289, 8.466810, "Best_Freeroam_Ever");
@@ -1307,8 +1335,6 @@ static const VehicleNames[212][] = {
 		Timer[1] = SetTimer("MoneyBag", MB_DELAY, true);
 	
 		
-		Database = db_open( "server.db" );
-		db_query( Database, "PRAGMA synchronous = OFF" );
 		
 		new  DBResult: Result,var;
 
