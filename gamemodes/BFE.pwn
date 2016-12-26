@@ -1,29 +1,28 @@
 /*
 
-				MIT License
+															MIT License
 
-			Copyright (c) 2016 Sreyas
+													Copyright (c) 2016 Sreyas
 
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
+		Permission is hereby granted, free of charge, to any person obtaining a copy
+		of this software and associated documentation files (the "Software"), to deal
+		in the Software without restriction, including without limitation the rights
+		to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+		copies of the Software, and to permit persons to whom the Software is
+		furnished to do so, subject to the following conditions:
 
-	The above copyright notice and this permission notice shall be included in all
-	copies or substantial portions of the Software.
+		The above copyright notice and this permission notice shall be included in all
+		copies or substantial portions of the Software.
 
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	SOFTWARE.
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+		AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+		LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+		SOFTWARE.
 */
-
-//includes 
+//includes
 #include <a_samp>
 
 #include<sscanf2>
@@ -1800,7 +1799,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 		for(new i;i<MAX_ATTACH_SLOTS;i++)
 		{
 			if(IsPlayerAttachedObjectSlotUsed(playerid, i))
-		   {
+			 {
 				A_INFO[playerid][i][Object_Model_id]=0;
 				A_INFO[playerid][i][Object_Bone_id]=0;
 				A_INFO[playerid][i][Offset_X]=0;
@@ -1811,7 +1810,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 				A_INFO[playerid][i][Rotation_Z]=0;
 				A_INFO[playerid][i][Scale_Y]=0;
 				A_INFO[playerid][i][Scale_Z]=0;
-		   }
+			 }
 		}
 		for( new i; i < _: Data; ++i ) P_INFO[ playerid ][ Data: i ] = 0;
 		
@@ -3690,7 +3689,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 				{
 					RemovePlayerAttachedObject(playerid, GetPVarInt(playerid, "AttachmentIndexSel"));
 					
-				   
+					 
 					new index = GetPVarInt(playerid, "AttachmentIndexSel");
 					new name[24];
 					GetPlayerName(playerid,name,24);
@@ -5935,7 +5934,7 @@ CMD:setleader(playerid,params[])
 	if(strcmp(P_INFO[playerid][gangname],P_INFO[giveid][gangname])) return SendClientMessage(playerid,-1,""RED"He is not in your gang!");
 	if(P_INFO[giveid][gangmember] == 0) return SendClientMessage(playerid,-1,""RED"That guy is not in a gang!");
 	if(P_INFO[giveid][gangleader] == 1) return SendClientMessage(playerid,-1,""RED"That guy is already leader in you gang!");
-	  
+		
 	P_INFO[giveid][gangleader] = 1;
 
 	format(str,sizeof(str),""YELLOW"%s"GREY" is promoted to Gang Leader of %s%s",P_INFO[giveid][Name],IntToHex(P_INFO[playerid][gangcolor]),P_INFO[giveid][gangname]);
@@ -5951,7 +5950,7 @@ CMD:demote(playerid,params[])
 	
 	if(P_INFO[playerid][gangmember] == 0) return SendClientMessage(playerid,-1,""RED"You are not in a gang!");
 	if(P_INFO[playerid][gangleader] == 0) return SendClientMessage(playerid,-1,""RED"You are not authorised to do that!");
-   
+	 
 	new giveid,str[128],Query[256];
 
 	if(sscanf(params,"u",giveid))return SendClientMessage(playerid,-1,""RED"Error:"GREY"/demote playerid");
@@ -6143,7 +6142,7 @@ CMD:gwar(playerid,params[])
 		{
 			c1++;
 			tempid = p;
-		   
+			 
 		}
 
 	}
@@ -6205,7 +6204,7 @@ CMD:createzone(playerid,params[])
 		GetPlayerPos(playerid, P_INFO[playerid][maxX], P_INFO[playerid][maxY], tempz);
 		SendClientMessage(playerid,-1,"Use "YELLOW" Left,Right Forward and Backward "RED"keys to change size of zone");
 		SendClientMessage(playerid,-1,"Use "YELLOW"walk "RED"key to stop the process");
-	  
+		
 		P_INFO[playerid][creatingzone] = true;
 		P_INFO[playerid][tempzone] = -1;
 		TogglePlayerControllable(playerid,false);
@@ -6260,19 +6259,19 @@ CMD:capture(playerid)
 
 CMD:zones(playerid)
 {
-   new string[900];
-   foreach(new i : Zones)
-   {
+	 new string[900];
+	 foreach(new i : Zones)
+	 {
 		if(isnull(ZInfo[i][Owner]))
 		format(string,sizeof string,"%s"GREEN"%d.)"RED"%s\n",string,(i+1),ZInfo[i][Name]);
 		else
 		format(string,sizeof string,"%s"GREEN"%d.)"RED"%s"YELLOW" %s(%s)\n",string,(i+1),ZInfo[i][Name],IntToHex(ZInfo[i][Color]),ZInfo[i][Owner]);
 
-   }
+	 }
 
-   ShowPlayerDialog(playerid,ZONES,DIALOG_STYLE_MSGBOX,""ORANGE"Zones"PINK"           Owned By",string,"Cancel","");
+	 ShowPlayerDialog(playerid,ZONES,DIALOG_STYLE_MSGBOX,""ORANGE"Zones"PINK"           Owned By",string,"Cancel","");
 
-   return 1;
+	 return 1;
 }
 
 CMD:ghelp(playerid)
@@ -6370,7 +6369,7 @@ public CaptureZone(playerid,zoneid)
 			ZInfo[zoneid][timer_main] = SetTimerEx("UnlockZone",1000,true,"i",zoneid);
 			ZInfo[zoneid][U_Attack] = false;
 			P_INFO[playerid][Capturing] = false;
-	  
+		
 			new Query[180];
 			format(Query,sizeof(Query),"UPDATE Gangs SET GangScore = GangScore+10 WHERE GangName = '%q'",P_INFO[playerid][gangname]);
 			db_query(Database,Query);
@@ -6438,7 +6437,7 @@ public GangWar(playerid,enemyid)
 
 	if(count1 ==0 || count2 ==0)
 	{
-	   
+		 
 		foreach(new i : SS_Player)
 		{
 			if(P_INFO[i][inwar] == true)
@@ -6514,7 +6513,7 @@ IsPlayerInArea(playerid, Float:MinX, Float:MinY, Float:MaxX, Float:MaxY)
 CheckVict(gname1[],gname2[])
 {
 	new count1,count2,pid,eid;
-  
+	
 	foreach(new i : SS_Player)
 	{
 		if(P_INFO[i][inwar] == true)
