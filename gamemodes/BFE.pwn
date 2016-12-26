@@ -23,7 +23,7 @@
 	SOFTWARE.
 */
 
-//includes
+//includes 
 #include <a_samp>
 
 #include<sscanf2>
