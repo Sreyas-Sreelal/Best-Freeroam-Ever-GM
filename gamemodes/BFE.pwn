@@ -21,6 +21,47 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
+
+
+
+															 ▄▄▄▄     █████▒▓█████                                                                                                            
+														▓█████▄ ▓██   ▒ ▓█   ▀                                                                                                            
+														▒██▒ ▄██▒████ ░ ▒███                                                                                                              
+														▒██░█▀  ░▓█▒  ░ ▒▓█  ▄                                                                                                            
+														░▓█  ▀█▓░▒█░    ░▒████▒                                                                                                           
+														░▒▓███▀▒ ▒ ░    ░░ ▒░ ░                                                                                                           
+														▒░▒   ░  ░       ░ ░  ░                                                                                                           
+														 ░    ░  ░ ░       ░                                                                                                              
+														 ░                 ░  ░                                                                                                           
+				      ░                                                                                                                           
+				 ▄▄▄▄   ▓█████   ██████ ▄▄▄█████▓     █████▒██▀███  ▓█████ ▓█████  ▒█████   ▄▄▄       ███▄ ▄███▓   ▓█████ ██▒   █▓▓█████  ██▀███  
+				▓█████▄ ▓█   ▀ ▒██    ▒ ▓  ██▒ ▓▒   ▓██   ▒▓██ ▒ ██▒▓█   ▀ ▓█   ▀ ▒██▒  ██▒▒████▄    ▓██▒▀█▀ ██▒   ▓█   ▀▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
+				▒██▒ ▄██▒███   ░ ▓██▄   ▒ ▓██░ ▒░   ▒████ ░▓██ ░▄█ ▒▒███   ▒███   ▒██░  ██▒▒██  ▀█▄  ▓██    ▓██░   ▒███   ▓██  █▒░▒███   ▓██ ░▄█ ▒
+				▒██░█▀  ▒▓█  ▄   ▒   ██▒░ ▓██▓ ░    ░▓█▒  ░▒██▀▀█▄  ▒▓█  ▄ ▒▓█  ▄ ▒██   ██░░██▄▄▄▄██ ▒██    ▒██    ▒▓█  ▄  ▒██ █░░▒▓█  ▄ ▒██▀▀█▄  
+				░▓█  ▀█▓░▒████▒▒██████▒▒  ▒██▒ ░    ░▒█░   ░██▓ ▒██▒░▒████▒░▒████▒░ ████▓▒░ ▓█   ▓██▒▒██▒   ░██▒   ░▒████▒  ▒▀█░  ░▒████▒░██▓ ▒██▒
+				░▒▓███▀▒░░ ▒░ ░▒ ▒▓▒ ▒ ░  ▒ ░░       ▒ ░   ░ ▒▓ ░▒▓░░░ ▒░ ░░░ ▒░ ░░ ▒░▒░▒░  ▒▒   ▓▒█░░ ▒░   ░  ░   ░░ ▒░ ░  ░ ▐░  ░░ ▒░ ░░ ▒▓ ░▒▓░
+				▒░▒   ░  ░ ░  ░░ ░▒  ░ ░    ░        ░       ░▒ ░ ▒░ ░ ░  ░ ░ ░  ░  ░ ▒ ▒░   ▒   ▒▒ ░░  ░      ░    ░ ░  ░  ░ ░░   ░ ░  ░  ░▒ ░ ▒░
+				 ░    ░    ░   ░  ░  ░    ░          ░ ░     ░░   ░    ░      ░   ░ ░ ░ ▒    ░   ▒   ░      ░         ░       ░░     ░     ░░   ░ 
+				 ░         ░  ░      ░                        ░        ░  ░   ░  ░    ░ ░        ░  ░       ░         ░  ░     ░     ░  ░   ░     
+				      ░                                                                                                       ░                   
+
+									Build 2 (26/12/2016)
+	
+							Created by Sreyas http://github.com/Sreyas-Sreelal
+							Repository - https://github.com/Sreyas-Sreelal/Best-Freeroam-Ever-GM	
+									----------------
+									|Libraries used| 
+						            ----------------
+							sscanf          - Yless,Emmet,maddinator
+							zcmd            - Zeex
+							mselection      - d0
+							GetVehicleColor - RyDeR`
+							gettime         - Jochemd
+							YSI             - Yless,Misiur
+							Samp_Fixer      - Yless,Gammix
+
+							
+
 */
 //includes
 #include <a_samp>
@@ -37,36 +78,36 @@
 main() {}
 
 
+//Custom settings 
+//--------------------------------------------------------------------------------------------------
+#define MAX_GANGS           50					//Maximmum Gangs in server
+#define MAX_GZONES          50					//Maximum Gang Zone in server
+#define ZONE_COLOR          0xF3F0E596          //Default Zone colour
+#define ZONE_LOCK_TIME      120                //NOTE:The time should be given in seconds
+#define ZONE_CAPTURE_TIME   30                //Same as above note
+#define MAX_GANG_SCORE       0              //Maximum score to create a gang
+#define MAX_ATTACH_SLOTS     11
+              
+#undef MAX_PLAYERS
+#define MAX_PLAYERS 50
+//----------------------------------------------------------------------------------------------------
+
+
 //Macro functions used
 #define MAKE_COLOR_FROM_RGB(%0,%1,%2,%3) ((((%0) & 0xFF) << 24) | (((%1) & 0xFF) << 16) | (((%2) & 0xFF) << 8) | (((%3) & 0xFF) << 0))
 #define MoneyBagDelay(%1,%2,%3,%4) (%1*3600000)+(%2*60000)+(%3*1000)+%4
 #define MoneyBagCash ((random(30)+20)*10000)
 #define MB_DELAY MoneyBagDelay(0, 10, 0, 0)
 #define CheckGangMembership(%0) if (!P_INFO[%0][gangmember]) return SendClientMessage(%0,-1,""RED"ERROR:"GREY"You are not a Gang Member")
-#define MAX_GANGS           50
-#define MAX_GZONES          50
-#define ZONE_COLOR          0xF3F0E596
-#define ZONE_LOCK_TIME      120                //NOTE:The time should be given in seconds
-#define ZONE_CAPTURE_TIME   30                //Same as above note
-#define MAX_SCORE           0              //Maximum score to create a gang
-#define MAX_ATTACH_SLOTS  11
-#undef MAX_PLAYERS
-#define MAX_PLAYERS 50
+
 #define CheckGangMembership(%0) if (!P_INFO[%0][gangmember]) return SendClientMessage(%0,-1,""RED"ERROR:"GREY"You are not a Gang Member")
-#define MAX_GANGS           50
-#define MAX_GZONES          50
-#define ZONE_COLOR          0xF3F0E596
-#define ZONE_LOCK_TIME      120                //NOTE:The time should be given in seconds
-#define ZONE_CAPTURE_TIME   30                //Same as above note
-#define MAX_SCORE           0              //Maximum score to create a gang
+
 //DIALOGS
 
 
 static bool:ActiveWar = false;
 
-static Iterator:Zones<MAX_GZONES>,
-
-		Iterator:SS_Player<MAX_PLAYERS>;//custom player iterator to overcome a bug in foreach's default one
+static Iterator:Zones<MAX_GZONES>;//custom player iterator to overcome a bug in foreach's default one
 enum
 {
 
@@ -231,7 +272,7 @@ enum Zone_Data
 
 static ZInfo[MAX_GZONES][Zone_Data];
 
-//////////////////////////////////////NOTE
+
 enum Attach_Data
 {
 	Object_Model_id,
@@ -304,7 +345,7 @@ static Text:BFE_TD[3],Text:BFE_MAIN_TD[5];
 #define G_BLUE                  0x0080FFC8
 #define G_RED                   0xFF0000FF
 
-//////////////////////////////////////////////////////////////NOTE:
+
 
 
 //TEXT DRAWS 
@@ -1492,7 +1533,6 @@ static const VehicleNames[212][] = {
 		}
 
 		Iter_Clear(Zones);
-		Iter_Clear(SS_Player);
 		db_close( Database );
 		return 1;
 	}
@@ -1911,8 +1951,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 }
 	public OnPlayerConnect(playerid)
 	{
-		Iter_Add(SS_Player,playerid);
-		
+				
 		for(new i;i<MAX_ATTACH_SLOTS;i++)
 		{
 			if(IsPlayerAttachedObjectSlotUsed(playerid, i))
@@ -3825,7 +3864,6 @@ public OnPlayerLeaveArea(playerid, areaid)
 					new Query[200];
 					format(Query,sizeof(Query),"UPDATE  attachment_slot_%d SET O_Model=0,O_Bone=0,O_OffX=0.0,O_OffY=0.0,O_OffZ=0.0,O_RotX=0.0,O_RotY=0.0,O_RotZ=0.0,O_ScaleX=0.0,O_ScaleY=0.0,O_ScaleZ=0.0 WHERE userid = %d",index,P_INFO[playerid][Userid]);
 					db_query(Database,Query);
-					printf("index = %d",index);
 					DeletePVar(playerid, "AttachmentIndexSel");
 				}
 				
@@ -3937,25 +3975,8 @@ public OnPlayerLeaveArea(playerid, areaid)
 		Load_Attachments(playerid);
 		if (P_INFO[playerid][inDM] == false && P_INFO[playerid][God] == 0)
 		{
-			printf("Passed check");
-			printf("Data    Meele  = %d \
-							Pistol = %d \
-							Sub = %d \
-							Rifle = %d\
-							Assault = %d \
-							Shotgun = %d \
-							Thrown = %d \
-							Other = %d",    
-							P_INFO[playerid][Meele],
-							P_INFO[playerid][Pistol] ,
-							P_INFO[playerid][Sub],
-							P_INFO[playerid][Rifle] ,
-							P_INFO[playerid][Assault],
-							P_INFO[playerid][Shotgun],
-							P_INFO[playerid][Thrown],
-							P_INFO[playerid][Other]);
-
 			
+						
 			GivePlayerWeapon(playerid,P_INFO[playerid][Meele],P_INFO[playerid][Ammo_Meele]);
 			GivePlayerWeapon(playerid,P_INFO[playerid][Pistol],P_INFO[playerid][Ammo_Pistol]);
 			GivePlayerWeapon(playerid,P_INFO[playerid][Sub],P_INFO[playerid][Ammo_Sub]);
@@ -5778,17 +5799,17 @@ public OnPlayerLeaveArea(playerid, areaid)
 			
 			if(db_num_rows(Result))
 			{
-				A_INFO[playerid][i][Object_Model_id]      = db_get_field_assoc_int(Result,"O_Model");
-				A_INFO[playerid][i][Object_Bone_id]       = db_get_field_assoc_int(Result,"O_Bone");
-				A_INFO[playerid][i][Offset_X]   = db_get_field_assoc_float(Result,"O_OffX");
-				A_INFO[playerid][i][Offset_Y]   = db_get_field_assoc_float(Result,"O_OffY");
-				A_INFO[playerid][i][Offset_Z]   = db_get_field_assoc_float(Result,"O_OffZ");
-				A_INFO[playerid][i][Rotation_X]      = db_get_field_assoc_float(Result,"O_RotX");
-				A_INFO[playerid][i][Rotation_Y]      = db_get_field_assoc_float(Result,"O_RotY");
-				A_INFO[playerid][i][Rotation_Z]      = db_get_field_assoc_float(Result,"O_RotZ");
-				A_INFO[playerid][i][Scale_X]    = db_get_field_assoc_float(Result,"O_ScaleX");
-				A_INFO[playerid][i][Scale_Y]    = db_get_field_assoc_float(Result,"O_ScaleY");
-				A_INFO[playerid][i][Scale_Z]    = db_get_field_assoc_float(Result,"O_ScaleZ");
+				A_INFO[playerid][i][Object_Model_id]    = 	db_get_field_assoc_int(Result,"O_Model");
+				A_INFO[playerid][i][Object_Bone_id]     = 	db_get_field_assoc_int(Result,"O_Bone");
+				A_INFO[playerid][i][Offset_X]   		= 	db_get_field_assoc_float(Result,"O_OffX");
+				A_INFO[playerid][i][Offset_Y]   		= 	db_get_field_assoc_float(Result,"O_OffY");
+				A_INFO[playerid][i][Offset_Z]   		= 	db_get_field_assoc_float(Result,"O_OffZ");
+				A_INFO[playerid][i][Rotation_X]      	= 	db_get_field_assoc_float(Result,"O_RotX");
+				A_INFO[playerid][i][Rotation_Y]      	= 	db_get_field_assoc_float(Result,"O_RotY");
+				A_INFO[playerid][i][Rotation_Z]      	= 	db_get_field_assoc_float(Result,"O_RotZ");
+				A_INFO[playerid][i][Scale_X]    		= 	db_get_field_assoc_float(Result,"O_ScaleX");
+				A_INFO[playerid][i][Scale_Y]    		= 	db_get_field_assoc_float(Result,"O_ScaleY");
+				A_INFO[playerid][i][Scale_Z]    		= 	db_get_field_assoc_float(Result,"O_ScaleZ");
 			}
 		}
 
@@ -5808,31 +5829,31 @@ public OnPlayerLeaveArea(playerid, areaid)
 		new Query[400];
 
 		format(Query,sizeof(Query),"UPDATE attachment_slot_%d SET \
-														O_Model = %d,\
-														O_Bone = %d,\
-														O_OffX = %f,\
-														O_OffY = %f ,\
-														O_OffZ = %f,\
-														O_RotX = %f,\
-														O_RotY = %f,\
-														O_RotZ = %f,\
-														O_ScaleX = %f,\
-														O_ScaleY = %f,\
-														O_ScaleZ = %f \
-														WHERE userid = %d",
-														index,
-														modelid,
-														boneid,
-														fOffsetX,
-														fOffsetY,
-														fOffsetZ,
-														fRotX,
-														fRotY,
-														fRotZ,
-														fScaleX,
-														fScaleY,
-														fScaleZ,
-														P_INFO[playerid][Userid]);
+									O_Model = %d,\
+									O_Bone = %d,\
+									O_OffX = %f,\
+									O_OffY = %f ,\
+									O_OffZ = %f,\
+									O_RotX = %f,\
+									O_RotY = %f,\
+									O_RotZ = %f,\
+									O_ScaleX = %f,\
+									O_ScaleY = %f,\
+									O_ScaleZ = %f \
+									WHERE userid = %d",
+									index,
+									modelid,
+									boneid,
+									fOffsetX,
+									fOffsetY,
+									fOffsetZ,
+									fRotX,
+									fRotY,
+									fRotZ,
+									fScaleX,
+									fScaleY,
+									fScaleZ,
+									P_INFO[playerid][Userid]);
 		db_query(Database,Query);
 
 
@@ -5871,8 +5892,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 		PlayerTextDrawSetShadow(playerid, P_INFO[playerid][TimerTD], -1);
 
 
-		printf("DEBUG in gang init()");
-
+		
 		foreach(new i:Zones)
 		{
 
@@ -5898,7 +5918,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 
 			P_INFO[playerid][creatingzone] = false;
 			P_INFO[playerid][gangid] = db_get_field_assoc_int( Result, "gangid");
-			printf("gangmember = %d leader = %d gang name = %s id =%d",P_INFO[playerid][gangmember],P_INFO[playerid][gangleader],P_INFO[playerid][gangname],P_INFO[playerid][gangid]);  
+		
 			if(P_INFO[playerid][gangmember] == 1)
 			{
 				new str[128];
@@ -5955,11 +5975,11 @@ CMD:creategang(playerid,params[])
 
 	if(P_INFO[playerid][gangmember] == 1) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are already in a Gang /lg to leave it");
 
-	if(GetPlayerScore(playerid) < MAX_SCORE )
+	if(GetPlayerScore(playerid) < MAX_GANG_SCORE )
 	{
 
 	new str_[89];
-	format(str_,sizeof str_,""RED"ERROR:"GREY"You need atleast "GREEN"%d "GREY" score to create a gang!",MAX_SCORE);
+	format(str_,sizeof str_,""RED"ERROR:"GREY"You need atleast "GREEN"%d "GREY" score to create a gang!",MAX_GANG_SCORE);
 	return SendClientMessage(playerid,-1,str_);
 
 	}
@@ -6006,7 +6026,7 @@ CMD:lg(playerid,params[])
 
 	if(P_INFO[playerid][gangleader] == 1)
 	{
-		foreach(new i : SS_Player)
+		foreach(new i : Player)
 		{
 			if(!strcmp(P_INFO[i][gangname],P_INFO[playerid][gangname],false))
 			{
@@ -6233,7 +6253,7 @@ CMD:gangtag(playerid,params[])
 	format(Query,sizeof(Query),"UPDATE Gangs SET GangTag = '%q' WHERE GangName = '%q'",params,P_INFO[playerid][gangname]);
 	db_query(Database,Query);
 
-	foreach(new i : SS_Player)
+	foreach(new i : Player)
 	{
 		if(!strcmp(P_INFO[i][gangname],P_INFO[playerid][gangname],false))
 		{
@@ -6266,7 +6286,7 @@ CMD:gwar(playerid,params[])
 	if(isnull(params)) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY":/gwar gangname");
 	if(!strcmp(params,"INVALID")) return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"You are not allowed to use that name!!");
 
-	foreach( p: SS_Player)
+	foreach( p: Player)
 	{
 		if(!strcmp(P_INFO[p][gangname],params,true))
 		{
@@ -6279,7 +6299,7 @@ CMD:gwar(playerid,params[])
 	
 	if(c1 == 0)return SendClientMessage(playerid,-1,""RED"No members of that gang is online");
 
-	foreach(new i : SS_Player)
+	foreach(new i : Player)
 	{
 		if(!strcmp(P_INFO[i][gangname],P_INFO[playerid][gangname]) || !strcmp(params,P_INFO[i][gangname]))
 		{
@@ -6470,7 +6490,7 @@ public CaptureZone(playerid,zoneid)
 		format(string,sizeof string,""RED"Your Gang zone is captured by"YELLOW" %s %sgang ",IntToHex(P_INFO[playerid][gangcolor]),P_INFO[playerid][gangname]);
 		PlayerTextDrawHide(playerid,P_INFO[playerid][TimerTD]);
 
-		foreach(new i : SS_Player)
+		foreach(new i : Player)
 		{
 			if(!strcmp(ZInfo[zoneid][Owner],P_INFO[i][gangname]))
 			{
@@ -6539,7 +6559,7 @@ public GangWar(playerid,enemyid)
 {
 	
 	new count1,count2;
-	foreach(new i : SS_Player)
+	foreach(new i : Player)
 	{
 		if(!strcmp(P_INFO[playerid][gangname],P_INFO[i][gangname]))
 		{
@@ -6568,7 +6588,7 @@ public GangWar(playerid,enemyid)
 	if(count1 ==0 || count2 ==0)
 	{
 			
-		foreach(new i : SS_Player)
+		foreach(new i : Player)
 		{
 			if(P_INFO[i][inwar] == true)
 			{
@@ -6618,7 +6638,7 @@ public FullyConnect(playerid)
 
 SendGangMessage(playerid,Message[])
 {
-	foreach(new i : SS_Player)
+	foreach(new i : Player)
 	{
 		if(!strcmp(P_INFO[playerid][gangname],P_INFO[i][gangname],false)&& !isnull(P_INFO[i][gangname]))
 		{
@@ -6644,7 +6664,7 @@ CheckVict(gname1[],gname2[])
 {
 	new count1,count2,pid,eid;
 	
-	foreach(new i : SS_Player)
+	foreach(new i : Player)
 	{
 		if(P_INFO[i][inwar] == true)
 		{
@@ -6666,7 +6686,7 @@ CheckVict(gname1[],gname2[])
 	{
 		new winner[32];
 		
-		foreach(new i : SS_Player)
+		foreach(new i : Player)
 		{
 			if(P_INFO[i][inwar])
 			{
