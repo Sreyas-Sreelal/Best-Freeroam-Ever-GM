@@ -1,8 +1,8 @@
 /*
 
-					MIT License
+								MIT License
 
-				 Copyright (c) 2016 Sreyas
+							Copyright (c) 2016 Sreyas
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
@@ -260,7 +260,7 @@ enum mbinfo
 
 //Server variables 
 static bool: hshot = false,DB: Database;
-static Text:BFE_TD[3];
+static Text:BFE_TD[3],Text:BFE_MAIN_TD[5];
 
 
 //Colors 
@@ -1344,6 +1344,80 @@ static const VehicleNames[212][] = {
 		TextDrawSetProportional(BFE_TD[2], 1);
 		TextDrawSetShadow(BFE_TD[2], 0);
 		
+		BFE_MAIN_TD[0] = TextDrawCreate(-16.548709, 491.000000, "box");
+		TextDrawLetterSize(BFE_MAIN_TD[0], 0.000000, -56.350025);
+		TextDrawTextSize(BFE_MAIN_TD[0], 729.000000, 0.000000);
+		TextDrawAlignment(BFE_MAIN_TD[0], 1);
+		TextDrawColor(BFE_MAIN_TD[0], -1);
+		TextDrawUseBox(BFE_MAIN_TD[0], 1);
+		TextDrawBoxColor(BFE_MAIN_TD[0], -66);
+		TextDrawSetShadow(BFE_MAIN_TD[0], 0);
+		TextDrawSetOutline(BFE_MAIN_TD[0], 0);
+		TextDrawBackgroundColor(BFE_MAIN_TD[0], -16777216);
+		TextDrawFont(BFE_MAIN_TD[0], 1);
+		TextDrawSetProportional(BFE_MAIN_TD[0], 1);
+		TextDrawSetShadow(BFE_MAIN_TD[0], 0);
+
+		BFE_MAIN_TD[1] = TextDrawCreate(180.000000, 183.437500, "~n~Deathmatch~n~~n~");
+		TextDrawLetterSize(BFE_MAIN_TD[1], 0.566500, 1.827499);
+		TextDrawTextSize(BFE_MAIN_TD[1], 45.000000, 132.000000);
+		TextDrawAlignment(BFE_MAIN_TD[1], 2);
+		TextDrawColor(BFE_MAIN_TD[1], -1);
+		TextDrawUseBox(BFE_MAIN_TD[1], 1);
+		TextDrawBoxColor(BFE_MAIN_TD[1], -217511480);
+		TextDrawSetShadow(BFE_MAIN_TD[1], 0);
+		TextDrawSetOutline(BFE_MAIN_TD[1], 1);
+		TextDrawBackgroundColor(BFE_MAIN_TD[1], 255);
+		TextDrawFont(BFE_MAIN_TD[1], 0);
+		TextDrawSetProportional(BFE_MAIN_TD[1], 1);
+		TextDrawSetShadow(BFE_MAIN_TD[1], 0);
+		TextDrawSetSelectable(BFE_MAIN_TD[1], true);
+
+		BFE_MAIN_TD[2] = TextDrawCreate(424.399841, 183.437500, "~n~Cancel~n~~n~");
+		TextDrawLetterSize(BFE_MAIN_TD[2], 0.566500, 1.827499);
+		TextDrawTextSize(BFE_MAIN_TD[2], 45.000000, 132.000000);
+		TextDrawAlignment(BFE_MAIN_TD[2], 2);
+		TextDrawColor(BFE_MAIN_TD[2], -1);
+		TextDrawUseBox(BFE_MAIN_TD[2], 1);
+		TextDrawBoxColor(BFE_MAIN_TD[2], -6291256);
+		TextDrawSetShadow(BFE_MAIN_TD[2], 0);
+		TextDrawSetOutline(BFE_MAIN_TD[2], 1);
+		TextDrawBackgroundColor(BFE_MAIN_TD[2], 255);
+		TextDrawFont(BFE_MAIN_TD[2], 0);
+		TextDrawSetProportional(BFE_MAIN_TD[2], 1);
+		TextDrawSetShadow(BFE_MAIN_TD[2], 0);
+		TextDrawSetSelectable(BFE_MAIN_TD[2], true);
+
+		BFE_MAIN_TD[3] = TextDrawCreate(303.599884, 130.537643, "~n~Teleports~n~~n~");
+		TextDrawLetterSize(BFE_MAIN_TD[3], 0.566500, 1.827499);
+		TextDrawTextSize(BFE_MAIN_TD[3], 45.000000, 132.000000);
+		TextDrawAlignment(BFE_MAIN_TD[3], 2);
+		TextDrawColor(BFE_MAIN_TD[3], -1);
+		TextDrawUseBox(BFE_MAIN_TD[3], 1);
+		TextDrawBoxColor(BFE_MAIN_TD[3], 8126408);
+		TextDrawSetShadow(BFE_MAIN_TD[3], 0);
+		TextDrawSetOutline(BFE_MAIN_TD[3], 1);
+		TextDrawBackgroundColor(BFE_MAIN_TD[3], 255);
+		TextDrawFont(BFE_MAIN_TD[3], 0);
+		TextDrawSetProportional(BFE_MAIN_TD[3], 1);
+		TextDrawSetShadow(BFE_MAIN_TD[3], 0);
+		TextDrawSetSelectable(BFE_MAIN_TD[3], true);
+
+		BFE_MAIN_TD[4] = TextDrawCreate(303.599884, 236.637405, "~n~Freeroam~n~~n~");
+		TextDrawLetterSize(BFE_MAIN_TD[4], 0.566500, 1.827499);
+		TextDrawTextSize(BFE_MAIN_TD[4], 45.000000, 132.000000);
+		TextDrawAlignment(BFE_MAIN_TD[4], 2);
+		TextDrawColor(BFE_MAIN_TD[4], -1);
+		TextDrawUseBox(BFE_MAIN_TD[4], 1);
+		TextDrawBoxColor(BFE_MAIN_TD[4], -65336);
+		TextDrawSetShadow(BFE_MAIN_TD[4], 0);
+		TextDrawSetOutline(BFE_MAIN_TD[4], 1);
+		TextDrawBackgroundColor(BFE_MAIN_TD[4], 255);
+		TextDrawFont(BFE_MAIN_TD[4], 0);
+		TextDrawSetProportional(BFE_MAIN_TD[4], 1);
+		TextDrawSetShadow(BFE_MAIN_TD[4], 0);
+		TextDrawSetSelectable(BFE_MAIN_TD[4], true);
+
 		////////////////////////////////////////////////////////////////////////
 		
 		AddPlayerClass(0, 0.00, 0.00, 3.12, 225.00, 0, 0, 0, 0, 0, 0);
@@ -1397,10 +1471,15 @@ static const VehicleNames[212][] = {
 	public OnGameModeExit()
 	{
 		//TEXT DRAWS/////////////////////
-		for( new i ; i < 3 ; i++ )
+		for( new i ; i < 3 ; i ++ )
 		{
 			TextDrawHideForAll(BFE_TD[i]);
 			TextDrawDestroy(BFE_TD[i]);
+		}
+		for( new i ; i < 5; i ++ )
+		{
+			TextDrawHideForAll(BFE_MAIN_TD[i]);
+			TextDrawDestroy(BFE_MAIN_TD[i]);
 		}
 		
 		
@@ -1419,6 +1498,44 @@ static const VehicleNames[212][] = {
 	}
 	
 	
+	public OnPlayerClickTextDraw(playerid, Text:clickedid)
+	{
+		
+		
+			
+		if(_:clickedid != INVALID_TEXT_DRAW)
+		{
+			
+			if(clickedid == BFE_MAIN_TD[1])
+			{
+				cmd_dm(playerid);
+				
+			}
+
+						
+			else if(clickedid == BFE_MAIN_TD[3])
+			{
+				cmd_t(playerid);
+			
+				for(new i;i<5;i++)
+				{
+					TextDrawHideForPlayer(playerid,BFE_MAIN_TD[i]);
+				}
+			}
+			CancelSelectTextDraw(playerid);
+		}
+		else  
+		{
+			
+			for(new i;i<5;i++)
+			{
+				TextDrawHideForPlayer(playerid,BFE_MAIN_TD[i]);
+			}
+					
+		}
+		
+		return 0;
+	}
 	forward Mute_timer();
 	public Mute_timer()
 	{
@@ -1456,7 +1573,7 @@ static const VehicleNames[212][] = {
 	public ObjectsLoaded(playerid)
 	{
 		if( IsPlayerConnected ( playerid ) ) return TogglePlayerControllable( playerid, true ), PlayerPlaySound( playerid, 1056, 0.0, 0.0, 0.0 );
-		return ( 1 );
+		return 1 ;
 	}
 	
 	public OnPlayerCommandReceived(playerid, cmdtext[])
@@ -1800,16 +1917,16 @@ public OnPlayerLeaveArea(playerid, areaid)
 		{
 			if(IsPlayerAttachedObjectSlotUsed(playerid, i))
 				{
-				A_INFO[playerid][i][Object_Model_id]=0;
-				A_INFO[playerid][i][Object_Bone_id]=0;
-				A_INFO[playerid][i][Offset_X]=0;
-				A_INFO[playerid][i][Offset_Y]=0;
-				A_INFO[playerid][i][Offset_Z]=0;
-				A_INFO[playerid][i][Rotation_X]=0;
-				A_INFO[playerid][i][Rotation_Y]=0;
-				A_INFO[playerid][i][Rotation_Z]=0;
-				A_INFO[playerid][i][Scale_Y]=0;
-				A_INFO[playerid][i][Scale_Z]=0;
+					A_INFO[playerid][i][Object_Model_id]=0;
+					A_INFO[playerid][i][Object_Bone_id]=0;
+					A_INFO[playerid][i][Offset_X]=0;
+					A_INFO[playerid][i][Offset_Y]=0;
+					A_INFO[playerid][i][Offset_Z]=0;
+					A_INFO[playerid][i][Rotation_X]=0;
+					A_INFO[playerid][i][Rotation_Y]=0;
+					A_INFO[playerid][i][Rotation_Z]=0;
+					A_INFO[playerid][i][Scale_Y]=0;
+					A_INFO[playerid][i][Scale_Z]=0;
 				}
 		}
 		for( new i; i < _: Data; ++i ) P_INFO[ playerid ][ Data: i ] = 0;
@@ -1881,12 +1998,17 @@ public OnPlayerLeaveArea(playerid, areaid)
 		//TEXT DRAWS///////////////////////////
 		for(new i;i<3;i++)
 			TextDrawShowForPlayer(playerid, BFE_TD[i]);
-	
-		GangInit(playerid);
 		
+		GangInit(playerid);
+		SetSpawnInfo( playerid, 0, 0, 1958.33, 1343.12, 15.36, 269.15, 26, 36, 28, 150, 0, 0 ); 
 		return 1;
 	}
 	
+	public OnPlayerRequestClass(playerid, classid) 
+	{ 
+    	SpawnPlayer(playerid);
+    	return 1; 
+	}  
 	public OnPlayerDisconnect(playerid, reason)
 	{
 		SendDeathMessage(INVALID_PLAYER_ID,playerid, 201);
@@ -2093,6 +2215,12 @@ public OnPlayerLeaveArea(playerid, areaid)
 						db_free_result( Result );
 						Load_Attachments(playerid);
 						
+						SelectTextDraw(playerid, 0xA3B4C5FF);
+
+						for(new i;i<5;i++)
+							TextDrawShowForPlayer(playerid,BFE_MAIN_TD[i]);
+						for(new i=1;i<5;i++)
+							TextDrawSetSelectable(BFE_MAIN_TD[i], true);
 					}
 					
 					
@@ -3722,6 +3850,8 @@ public OnPlayerLeaveArea(playerid, areaid)
 		return 1;
 	}
 		
+	
+
 	public OnPlayerModelSelection(playerid, response, listid, modelid)
 	{
 	
