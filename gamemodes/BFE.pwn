@@ -29,7 +29,7 @@ main() {}
 #define ZONE_LOCK_TIME      120                //NOTE:The time should be given in seconds
 #define ZONE_CAPTURE_TIME   30                //Same as above note
 #define MAX_SCORE           0              //Maximum score to create a gang
-#define MAX_OSLOTS  11
+#define MAX_ATTACH_SLOTS  11
 #undef MAX_PLAYERS
 #define MAX_PLAYERS 50
 #define CheckGangMembership(%0) if (!P_INFO[%0][gangmember]) return SendClientMessage(%0,-1,""RED"ERROR:"GREY"You are not a Gang Member")
@@ -212,21 +212,21 @@ enum Zone_Data
 static ZInfo[MAX_GZONES][Zone_Data];
 
 //////////////////////////////////////NOTE
-enum attachmentInfo
+enum Attach_Data
 {
-	Amodel,
-	Abone,
-	Float:AfOffsetX,
-	Float:AfOffsetY,
-	Float:AfOffsetZ,
-	Float:AfRotX,
-	Float:AfRotY,
-	Float:AfRotZ,
-	Float:AfScaleX,
-	Float:AfScaleY,
-	Float:AfScaleZ
+	Object_Model_id,
+	Object_Bone_id,
+	Float:Offset_X,
+	Float:Offset_Y,
+	Float:Offset_Z,
+	Float:Rotation_X,
+	Float:Rotation_Y,
+	Float:Rotation_Z,
+	Float:Scale_X,
+	Float:Scale_Y,
+	Float:Scale_Z
 }
-static aInfo[MAX_PLAYERS][MAX_OSLOTS][attachmentInfo];
+static A_INFO[MAX_PLAYERS][MAX_ATTACH_SLOTS][Attach_Data];
 
 //Money bag data
 
@@ -240,7 +240,7 @@ enum mbinfo
 
 //Server variables 
 static bool: hshot = false,DB: Database;
-
+static Text:BFE_TD[3];
 
 
 //Colors 
@@ -288,9 +288,7 @@ static bool: hshot = false,DB: Database;
 
 
 //TEXT DRAWS 
-static Text: bfetop;
-static Text: bfecmds;
-static Text: website;
+
 
 
 native WP_Hash(buffer[], len, const str[]);
@@ -1261,32 +1259,45 @@ static const VehicleNames[212][] = {
 		Unique = LoadModelSelectionMenu("Unique Vehicles.txt");
 		
 		//TEXT DRAWSSSSSSSSSSS//////////////////////////////////////////////////
-		bfetop = TextDrawCreate(205.000000, 10.000000, "Best Freeroam Ever");
-		TextDrawBackgroundColor(bfetop, 255);
-		TextDrawFont(bfetop, 3);
-		TextDrawLetterSize(bfetop, 0.519999, 1.400000);
-		TextDrawColor(bfetop, -16776961);
-		TextDrawSetOutline(bfetop, 1);
-		TextDrawSetProportional(bfetop, 1);
 		
-		bfecmds = TextDrawCreate(9.000000, 420.000000, "/cmds - know all cmds /v - get vehicles  /w  - get weapons  /settings - change settings");
-		TextDrawBackgroundColor(bfecmds, 255);
-		TextDrawFont(bfecmds, 1);
-		TextDrawLetterSize(bfecmds, 0.400000, 2.100000);
-		TextDrawColor(bfecmds, -1);
-		TextDrawSetOutline(bfecmds, 0);
-		TextDrawSetProportional(bfecmds, 1);
-		TextDrawSetShadow(bfecmds, 1);
+		BFE_TD[0] = TextDrawCreate(314.765289, 8.466810, "Best_Freeroam_Ever");
+		TextDrawLetterSize(BFE_TD[0], 0.447444, 1.728516);
+		TextDrawAlignment(BFE_TD[0], 2);
+		TextDrawColor(BFE_TD[0], -1025);
+		TextDrawSetShadow(BFE_TD[0], 0);
+		TextDrawSetOutline(BFE_TD[0], 1);
+		TextDrawBackgroundColor(BFE_TD[0], 255);
+		TextDrawFont(BFE_TD[0], 0);
+		TextDrawSetProportional(BFE_TD[0], 1);
+		TextDrawSetShadow(BFE_TD[0], 0);
+
+		BFE_TD[1] = TextDrawCreate(25.933355, 266.707366, "~h~~h~~r~Useful_Commands");
+		TextDrawLetterSize(BFE_TD[1], 0.361444, 1.919999);
+		TextDrawAlignment(BFE_TD[1], 1);
+		TextDrawColor(BFE_TD[1], 33489151);
+		TextDrawSetShadow(BFE_TD[1], 0);
+		TextDrawSetOutline(BFE_TD[1], -1);
+		TextDrawBackgroundColor(BFE_TD[1], 255);
+		TextDrawFont(BFE_TD[1], 0);
+		TextDrawSetProportional(BFE_TD[1], 1);
+		TextDrawSetShadow(BFE_TD[1], 0);
+
+		BFE_TD[2] = TextDrawCreate(7.233353, 288.244598, "/c_-_to_view_all_cmds~n~/settings_-_change_settings~n~/v_-_to_spawn_a_vehicle~n~/gcp_-_change_gang_settings~n~/report_-_to_send_report_~n~/o_-_attachment_settings_____~n~");
+		TextDrawLetterSize(BFE_TD[2], 0.186557, 0.917778);
+		TextDrawTextSize(BFE_TD[2], 123.000000, -6.140045);
+		TextDrawAlignment(BFE_TD[2], 1);
+		TextDrawColor(BFE_TD[2], -1);
+		TextDrawUseBox(BFE_TD[2], 1);
+		TextDrawBoxColor(BFE_TD[2], -16777166);
+		TextDrawSetShadow(BFE_TD[2], 0);
+		TextDrawSetOutline(BFE_TD[2], 0);
+		TextDrawBackgroundColor(BFE_TD[2], 255);
+		TextDrawFont(BFE_TD[2], 2);
+		TextDrawSetProportional(BFE_TD[2], 1);
+		TextDrawSetShadow(BFE_TD[2], 0);
 		
-		website = TextDrawCreate(481.000000, 105.000000, "www.bfesamp.tk");
-		TextDrawBackgroundColor(website, 255);
-		TextDrawFont(website, 3);
-		TextDrawLetterSize(website, 0.500000, 1.000000);
-		TextDrawColor(website, -16711681);
-		TextDrawSetOutline(website, 0);
-		TextDrawSetProportional(website, 1);
-		TextDrawSetShadow(website, 1);
 		////////////////////////////////////////////////////////////////////////
+		
 		AddPlayerClass(0, 0.00, 0.00, 3.12, 225.00, 0, 0, 0, 0, 0, 0);
 		hshot = true;
 		
@@ -1331,6 +1342,8 @@ static const VehicleNames[212][] = {
 		}
 
 		db_free_result( Result );
+		
+		SetTimer("Change_TD_colour",3000,true);
 		return 1;
 	}
 	
@@ -1338,12 +1351,14 @@ static const VehicleNames[212][] = {
 	public OnGameModeExit()
 	{
 		//TEXT DRAWS/////////////////////
-		TextDrawHideForAll(bfetop);
-		TextDrawDestroy(bfetop);
-		TextDrawHideForAll(bfecmds);
-		TextDrawDestroy(bfecmds);
-		TextDrawHideForAll(website);
-		TextDrawDestroy(website);
+		for( new i ; i < 3 ; i++ )
+		{
+			TextDrawHideForAll(BFE_TD[i]);
+			TextDrawDestroy(BFE_TD[i]);
+		}
+		
+		
+		
 		////////////////////////////////////
 		foreach(new i : Zones)
 		{
@@ -1601,102 +1616,103 @@ static const VehicleNames[212][] = {
 	}
 	
 	public OnPlayerUpdate(playerid) //By RyDer
-{
-	if(P_INFO[playerid][creatingzone])
 	{
-		new keys,ud,lr;
-		GetPlayerKeys(playerid,keys,ud,lr);
-	
-
-		if(lr == KEY_LEFT)
+		if(P_INFO[playerid][creatingzone])
 		{
+			new keys,ud,lr;
+			GetPlayerKeys(playerid,keys,ud,lr);
+		
 
-			P_INFO[playerid][minX] -= 6.0;
-			GangZoneDestroy(P_INFO[playerid][tempzone]);
-			P_INFO[playerid][tempzone] =  GangZoneCreate(P_INFO[playerid][minX],P_INFO[playerid][minY],P_INFO[playerid][maxX],P_INFO[playerid][maxY]);
-			GangZoneShowForPlayer(playerid, P_INFO[playerid][tempzone], ZONE_COLOR);
-
-		}
-		else
-		if(lr == KEY_RIGHT)
-		{
-
-			P_INFO[playerid][maxX] += 6.0;
-			GangZoneDestroy(P_INFO[playerid][tempzone]);
-			P_INFO[playerid][tempzone] =  GangZoneCreate(P_INFO[playerid][minX],P_INFO[playerid][minY],P_INFO[playerid][maxX],P_INFO[playerid][maxY]);
-			GangZoneShowForPlayer(playerid, P_INFO[playerid][tempzone],ZONE_COLOR);
-
-		}
-
-		else
-		if(ud == KEY_UP)
-		{
-
-			P_INFO[playerid][maxY] += 6.0;
-			GangZoneDestroy(P_INFO[playerid][tempzone]);
-			P_INFO[playerid][tempzone] =  GangZoneCreate(P_INFO[playerid][minX],P_INFO[playerid][minY],P_INFO[playerid][maxX],P_INFO[playerid][maxY]);
-			GangZoneShowForPlayer(playerid, P_INFO[playerid][tempzone], ZONE_COLOR);
-
-		}
-
-		else
-		if(ud == KEY_DOWN)
-		{
-
-			P_INFO[playerid][minY] -= 6.0;
-			GangZoneDestroy(P_INFO[playerid][tempzone]);
-			P_INFO[playerid][tempzone] =  GangZoneCreate(P_INFO[playerid][minX],P_INFO[playerid][minY],P_INFO[playerid][maxX],P_INFO[playerid][maxY]);
-			GangZoneShowForPlayer(playerid, P_INFO[playerid][tempzone], ZONE_COLOR);
-
-		}
-
-
-		else if(keys & KEY_WALK)
-		{
-
-			P_INFO[playerid][creatingzone] = false;
-			TogglePlayerControllable(playerid,true);
-			ShowPlayerDialog(playerid,ZONECREATE,DIALOG_STYLE_INPUT,"Input Zone Name ","Input the name of this gang zone","Create","");
-			GangZoneDestroy(P_INFO[playerid][tempzone]);
-		}
-	}
-	return 1;
-
-}
-
-
-	public OnPlayerEnterArea(playerid, areaid)
-{
-	foreach(new i : Zones)
-	{
-		if(areaid == ZInfo[i][Region])
-		{
-			new str[128];
-			
-			if(isnull(ZInfo[i][Owner]))
+			if(lr == KEY_LEFT)
 			{
 
-				format(str,sizeof str,"~y~Zone_Info~n~~b~Name:_~r~%s~n~~b~Status:_~r~Un_Owned",ZInfo[i][Name]);
-				PlayerTextDrawSetString(playerid, P_INFO[playerid][TextDraw],str);
+				P_INFO[playerid][minX] -= 6.0;
+				GangZoneDestroy(P_INFO[playerid][tempzone]);
+				P_INFO[playerid][tempzone] =  GangZoneCreate(P_INFO[playerid][minX],P_INFO[playerid][minY],P_INFO[playerid][maxX],P_INFO[playerid][maxY]);
+				GangZoneShowForPlayer(playerid, P_INFO[playerid][tempzone], ZONE_COLOR);
 
 			}
 			else
+			if(lr == KEY_RIGHT)
 			{
 
-				format(str,sizeof str,"~y~Zone_Info_~n~~b~Name:_~r~%s~n~~b~Status:_~r~Owned-by_~g~%s",ZInfo[i][Name],ZInfo[i][Owner]);
-				PlayerTextDrawSetString(playerid, P_INFO[playerid][TextDraw],str);
+				P_INFO[playerid][maxX] += 6.0;
+				GangZoneDestroy(P_INFO[playerid][tempzone]);
+				P_INFO[playerid][tempzone] =  GangZoneCreate(P_INFO[playerid][minX],P_INFO[playerid][minY],P_INFO[playerid][maxX],P_INFO[playerid][maxY]);
+				GangZoneShowForPlayer(playerid, P_INFO[playerid][tempzone],ZONE_COLOR);
 
 			}
 
-			PlayerTextDrawShow(playerid,P_INFO[playerid][TextDraw]);
+			else
+			if(ud == KEY_UP)
+			{
 
-			return 1;
+				P_INFO[playerid][maxY] += 6.0;
+				GangZoneDestroy(P_INFO[playerid][tempzone]);
+				P_INFO[playerid][tempzone] =  GangZoneCreate(P_INFO[playerid][minX],P_INFO[playerid][minY],P_INFO[playerid][maxX],P_INFO[playerid][maxY]);
+				GangZoneShowForPlayer(playerid, P_INFO[playerid][tempzone], ZONE_COLOR);
+
+			}
+
+			else
+			if(ud == KEY_DOWN)
+			{
+
+				P_INFO[playerid][minY] -= 6.0;
+				GangZoneDestroy(P_INFO[playerid][tempzone]);
+				P_INFO[playerid][tempzone] =  GangZoneCreate(P_INFO[playerid][minX],P_INFO[playerid][minY],P_INFO[playerid][maxX],P_INFO[playerid][maxY]);
+				GangZoneShowForPlayer(playerid, P_INFO[playerid][tempzone], ZONE_COLOR);
+
+			}
+
+
+			else if(keys & KEY_WALK)
+			{
+
+				P_INFO[playerid][creatingzone] = false;
+				TogglePlayerControllable(playerid,true);
+				ShowPlayerDialog(playerid,ZONECREATE,DIALOG_STYLE_INPUT,"Input Zone Name ","Input the name of this gang zone","Create","");
+				GangZoneDestroy(P_INFO[playerid][tempzone]);
+			}
 		}
+		
+		return 1;
 
 	}
 
-	return 1;
-}
+
+	public OnPlayerEnterArea(playerid, areaid)
+	{
+		foreach(new i : Zones)
+		{
+			if(areaid == ZInfo[i][Region])
+			{
+				new str[128];
+				
+				if(isnull(ZInfo[i][Owner]))
+				{
+
+					format(str,sizeof str,"~y~Zone_Info~n~~b~Name:_~r~%s~n~~b~Status:_~r~Un_Owned",ZInfo[i][Name]);
+					PlayerTextDrawSetString(playerid, P_INFO[playerid][TextDraw],str);
+
+				}
+				else
+				{
+
+					format(str,sizeof str,"~y~Zone_Info_~n~~b~Name:_~r~%s~n~~b~Status:_~r~Owned-by_~g~%s",ZInfo[i][Name],ZInfo[i][Owner]);
+					PlayerTextDrawSetString(playerid, P_INFO[playerid][TextDraw],str);
+
+				}
+
+				PlayerTextDrawShow(playerid,P_INFO[playerid][TextDraw]);
+
+				return 1;
+			}
+
+		}
+
+		return 1;
+	}
 
 public OnPlayerLeaveArea(playerid, areaid)
 {
@@ -1734,20 +1750,20 @@ public OnPlayerLeaveArea(playerid, areaid)
 	{
 		Iter_Add(SS_Player,playerid);
 		
-		for(new i;i<MAX_OSLOTS;i++)
+		for(new i;i<MAX_ATTACH_SLOTS;i++)
 		{
 			if(IsPlayerAttachedObjectSlotUsed(playerid, i))
 		   {
-				aInfo[playerid][i][Amodel]=0;
-				aInfo[playerid][i][Abone]=0;
-				aInfo[playerid][i][AfOffsetX]=0;
-				aInfo[playerid][i][AfOffsetY]=0;
-				aInfo[playerid][i][AfOffsetZ]=0;
-				aInfo[playerid][i][AfRotX]=0;
-				aInfo[playerid][i][AfRotY]=0;
-				aInfo[playerid][i][AfRotZ]=0;
-				aInfo[playerid][i][AfScaleY]=0;
-				aInfo[playerid][i][AfScaleZ]=0;
+				A_INFO[playerid][i][Object_Model_id]=0;
+				A_INFO[playerid][i][Object_Bone_id]=0;
+				A_INFO[playerid][i][Offset_X]=0;
+				A_INFO[playerid][i][Offset_Y]=0;
+				A_INFO[playerid][i][Offset_Z]=0;
+				A_INFO[playerid][i][Rotation_X]=0;
+				A_INFO[playerid][i][Rotation_Y]=0;
+				A_INFO[playerid][i][Rotation_Z]=0;
+				A_INFO[playerid][i][Scale_Y]=0;
+				A_INFO[playerid][i][Scale_Z]=0;
 		   }
 		}
 		for( new i; i < _: Data; ++i ) P_INFO[ playerid ][ Data: i ] = 0;
@@ -1817,10 +1833,9 @@ public OnPlayerLeaveArea(playerid, areaid)
 		////////////////////////////////////////
 		
 		//TEXT DRAWS///////////////////////////
-		TextDrawShowForPlayer(playerid, bfetop);
-		TextDrawShowForPlayer(playerid, bfecmds);
-		TextDrawShowForPlayer(playerid, website);
-		////////////////////////////////////////
+		for(new i;i<3;i++)
+			TextDrawShowForPlayer(playerid, BFE_TD[i]);
+	
 		GangInit(playerid);
 		
 		return 1;
@@ -2058,7 +2073,8 @@ public OnPlayerLeaveArea(playerid, areaid)
 						case 0: return ShowPlayerDialog(playerid,DIALOG_ACCOUNT,DIALOG_STYLE_LIST,""ORANGE"BFE Account Settings", "Change Name \nChange Password", "Select", "Cancel");
 						case 1: return ShowPlayerDialog(playerid,PSETTINGS,DIALOG_STYLE_LIST,""ORANGE"BFE Player Settings", "Change Skin \nPrivate Messages [on/off] \nGoto [on/off] \nGod Mode[on/off]\nChange Nick Color", "Select", "Cancel");
 						case 2: return ShowPlayerDialog(playerid,VSETTINGS,DIALOG_STYLE_LIST,""ORANGE"BFE Vehicle Settings", "Nitro [on/off] \nAuto Fix [on/off] \nBounce [on/off] \nAnti Fall [on/off] \nTune Your Car ", "Select", "Cancel");
-					}
+						case 3: return cmd_gcp(playerid);
+					}	
 				}
 			}
 			case DIALOG_ACCOUNT:
@@ -3792,11 +3808,11 @@ public OnPlayerLeaveArea(playerid, areaid)
 		}
 		
 		
-		for(new i=0;i<MAX_OSLOTS;i++)
+		for(new i=0;i<MAX_ATTACH_SLOTS;i++)
 		{                      
-			if(aInfo[playerid][i][Amodel] !=0)
+			if(A_INFO[playerid][i][Object_Model_id] !=0)
 			{
-				SetPlayerAttachedObject(playerid,i,aInfo[playerid][i][Amodel],aInfo[playerid][i][Abone],aInfo[playerid][i][AfOffsetX],aInfo[playerid][i][AfOffsetY],aInfo[playerid][i][AfOffsetZ],aInfo[playerid][i][AfRotX],aInfo[playerid][i][AfRotY],aInfo[playerid][i][AfRotZ],aInfo[playerid][i][AfScaleX],aInfo[playerid][i][AfScaleY],aInfo[playerid][i][AfScaleZ]);
+				SetPlayerAttachedObject(playerid,i,A_INFO[playerid][i][Object_Model_id],A_INFO[playerid][i][Object_Bone_id],A_INFO[playerid][i][Offset_X],A_INFO[playerid][i][Offset_Y],A_INFO[playerid][i][Offset_Z],A_INFO[playerid][i][Rotation_X],A_INFO[playerid][i][Rotation_Y],A_INFO[playerid][i][Rotation_Z],A_INFO[playerid][i][Scale_X],A_INFO[playerid][i][Scale_Y],A_INFO[playerid][i][Scale_Z]);
 			}
 		}
 		
@@ -4297,26 +4313,25 @@ public OnPlayerLeaveArea(playerid, areaid)
 	
 	CMD:settings(playerid)
 	{
-		if(P_INFO[playerid][Logged] == false)return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"YOU MUST LOGIN !");
-		
-		ShowPlayerDialog(playerid, DIALOG_SETTINGS, DIALOG_STYLE_LIST, ""ORANGE"BFE Player Settings", "Account Settings \nPlayer Settings \nVehicle Settings", "Select", "Cancel");
-		
+		if(P_INFO[playerid][Logged] == false) return SendClientMessage(playerid,-1,""RED"[ERROR:]"GREY" YOU MUST LOGIN !");
+		if(P_INFO[playerid][gangmember] == 1) return ShowPlayerDialog(playerid, DIALOG_SETTINGS, DIALOG_STYLE_LIST, ""ORANGE"BFE Player Settings", "Account Settings \nPlayer Settings \nVehicle Settings\nGang Settings", "Select", "Cancel");
+		if(P_INFO[playerid][gangmember] == 0) return ShowPlayerDialog(playerid, DIALOG_SETTINGS, DIALOG_STYLE_LIST, ""ORANGE"BFE Player Settings", "Account Settings \nPlayer Settings \nVehicle Settings", "Select", "Cancel");
 		
 		return 1;
 	}
 	
 	CMD:t(playerid)
 	{
-		if(P_INFO[playerid][Logged] == false)return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"YOU MUST LOGIN !");
+		if(P_INFO[playerid][Logged] == false)return SendClientMessage(playerid,-1,""RED"ERROR:"GREY" YOU MUST LOGIN !");
 		ShowPlayerDialog(playerid, DIALOG_TELES, DIALOG_STYLE_LIST, ""RED"BFE Teleports", "Abandoned Airport(/aa)\nLos Santos Airport (/lsa)\nLas Venturas Airport(/lva)\nSanFierro Airport(/sfa)\nMount Chilliad(/mc)\nLos Santos City(/ls)\nLas VenturasCity(/lv)\nSanFierro City(/sf)\nTransfender(/trans)\nWheel Archs(/arch)\n", "Select", "Cancel");
 		return 1;
 	}
 	
 	CMD:w(playerid)
 	{
-		if(P_INFO[playerid][Logged] == false)return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"YOU MUST LOGIN !");
-		if(P_INFO[playerid][God] == 1)return SendClientMessage(playerid,-1,""RED"ERROR:"GREY"TURN OFF GOD MODE FIRST !");
-		ShowPlayerDialog(playerid, WEAPON_DIALOG_MAIN, DIALOG_STYLE_LIST, ""RED"BFEWeapon Lists", "{00FF00}Melees\n{8000FF}Pistols\n{FF8000}Sub-Machine Guns\n{FF00FF}Rifle's\n{FF0080}Assault Rifle\n{DFFF00}Shotgun\n{8080FF}Thrown\n{1340F2}Other", "Select", "Cancel");
+		if(P_INFO[playerid][Logged] == false)return SendClientMessage(playerid,-1,""RED"ERROR:"GREY" YOU MUST LOGIN !");
+		if(P_INFO[playerid][God] == 1)return SendClientMessage(playerid,-1,""RED"[ERROR:]"GREY" TURN OFF GOD MODE FIRST !");
+		ShowPlayerDialog(playerid, WEAPON_DIALOG_MAIN, DIALOG_STYLE_LIST, ""RED"BFE Weapon Lists", "{00FF00}Melees\n{8000FF}Pistols\n{FF8000}Sub-Machine Guns\n{FF00FF}Rifle's\n{FF0080}Assault Rifle\n{DFFF00}Shotgun\n{8080FF}Thrown\n{1340F2}Other", "Select", "Cancel");
 		
 		return 1;
 		
@@ -4433,7 +4448,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 		
 		if ( P_INFO[playerid][inDM] == false )
 		{
-			SendClientMessage(playerid, -1, ""RED"ERROR: "GREY"You are not in a deathmatch arena!" );
+			SendClientMessage(playerid, -1, ""RED"[ERROR:] "GREY"You are not in a deathmatch arena!" );
 			return 1;
 		}
 		if ( P_INFO[playerid][inDM] == true )
@@ -4591,7 +4606,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 	{
 		new string[128];
 		new dialog[500];
-		for(new i;i<MAX_OSLOTS;i++)
+		for(new i;i<MAX_ATTACH_SLOTS;i++)
 		{
 			if(IsPlayerAttachedObjectSlotUsed(playerid, i))
 			{       
@@ -5579,7 +5594,7 @@ public OnPlayerLeaveArea(playerid, areaid)
 	{
 		new Query[400],DBResult:Result;
 		
-		for(new i; i < MAX_OSLOTS; i++)
+		for(new i; i < MAX_ATTACH_SLOTS; i++)
 		{
 			
 			format(Query,sizeof(Query),"SELECT * FROM attachment_slot_%d WHERE userid = %d",i,P_INFO[playerid][Userid]);
@@ -5587,17 +5602,17 @@ public OnPlayerLeaveArea(playerid, areaid)
 			
 			if(db_num_rows(Result))
 			{
-				aInfo[playerid][i][Amodel]      = db_get_field_assoc_int(Result,"O_Model");
-				aInfo[playerid][i][Abone]       = db_get_field_assoc_int(Result,"O_Bone");
-				aInfo[playerid][i][AfOffsetX]   = db_get_field_assoc_float(Result,"O_OffX");
-				aInfo[playerid][i][AfOffsetY]   = db_get_field_assoc_float(Result,"O_OffY");
-				aInfo[playerid][i][AfOffsetZ]   = db_get_field_assoc_float(Result,"O_OffZ");
-				aInfo[playerid][i][AfRotX]      = db_get_field_assoc_float(Result,"O_RotX");
-				aInfo[playerid][i][AfRotY]      = db_get_field_assoc_float(Result,"O_RotY");
-				aInfo[playerid][i][AfRotZ]      = db_get_field_assoc_float(Result,"O_RotZ");
-				aInfo[playerid][i][AfScaleX]    = db_get_field_assoc_float(Result,"O_ScaleX");
-				aInfo[playerid][i][AfScaleY]    = db_get_field_assoc_float(Result,"O_ScaleY");
-				aInfo[playerid][i][AfScaleZ]    = db_get_field_assoc_float(Result,"O_ScaleZ");
+				A_INFO[playerid][i][Object_Model_id]      = db_get_field_assoc_int(Result,"O_Model");
+				A_INFO[playerid][i][Object_Bone_id]       = db_get_field_assoc_int(Result,"O_Bone");
+				A_INFO[playerid][i][Offset_X]   = db_get_field_assoc_float(Result,"O_OffX");
+				A_INFO[playerid][i][Offset_Y]   = db_get_field_assoc_float(Result,"O_OffY");
+				A_INFO[playerid][i][Offset_Z]   = db_get_field_assoc_float(Result,"O_OffZ");
+				A_INFO[playerid][i][Rotation_X]      = db_get_field_assoc_float(Result,"O_RotX");
+				A_INFO[playerid][i][Rotation_Y]      = db_get_field_assoc_float(Result,"O_RotY");
+				A_INFO[playerid][i][Rotation_Z]      = db_get_field_assoc_float(Result,"O_RotZ");
+				A_INFO[playerid][i][Scale_X]    = db_get_field_assoc_float(Result,"O_ScaleX");
+				A_INFO[playerid][i][Scale_Y]    = db_get_field_assoc_float(Result,"O_ScaleY");
+				A_INFO[playerid][i][Scale_Z]    = db_get_field_assoc_float(Result,"O_ScaleZ");
 			}
 		}
 
@@ -5612,15 +5627,9 @@ public OnPlayerLeaveArea(playerid, areaid)
 		index,modelid,boneid,fOffsetX,fOffsetY,fOffsetZ,fRotX,fRotY,fRotZ,fScaleX,fScaleY,fScaleZ);
  
 		SetPlayerAttachedObject(playerid,index,modelid,boneid,fOffsetX,fOffsetY,fOffsetZ,fRotX,fRotY,fRotZ,fScaleX,fScaleY,fScaleZ);
-		SendClientMessage(playerid, 0xFFFFFFFF, "PLAYER: You have finished editing attachments, it has been saved to your database.");
-	 
-		new file[256];
-		new name[24];
-		GetPlayerName(playerid,name,24);
-		format(file,sizeof(file),"Player Objects/%s.ini",name);
-		
-		
-		new Query[400];
+		SendClientMessage(playerid, 0xFFFFFFFF, ""RED"[BFE] "GREY": Your changes are saved successfully! ");
+	 	
+	 	new Query[400];
 
 		format(Query,sizeof(Query),"UPDATE attachment_slot_%d SET \
 														O_Model = %d,\
@@ -6164,10 +6173,10 @@ CMD:createzone(playerid,params[])
 CMD:capture(playerid)
 {
 
-	if(P_INFO[playerid][gangmember] == 0) return SendClientMessage(playerid,-1,""RED"[ERROR]:"GREY"You are not in any gang!");
-
+	if(P_INFO[playerid][gangmember] == 0) return SendClientMessage(playerid,-1,""RED"[ERROR] :"GREY"You are not in any gang!");
+	if(P_INFO[playerid][God] == 1) return SendClientMessage(playerid, -1, ""RED"[ERROR] : "GREY"You should turn off god mode before capturing this zoe "); 
+	
 	new bool:inzone = false,i;
-
 	foreach( i : Zones)
 	{
 
@@ -6254,6 +6263,20 @@ CMD:ghelp(playerid)
 
 //-Custom Functions--------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+forward Change_TD_colour();
+public Change_TD_colour()
+{
+	static const Colour_Array[12][]=
+	{
+		"~w~","~r~","~y~","~b~","~g~","~p~","~h~~w~","~h~~r~","~h~~y~","~h~~b~","~h~~g~","~h~~p~"
+	};
+	new New_String[32];
+	static const Best[]="Best_",Freeroam[]="Freeroam_",Ever[]="Ever";
+	format(New_String,sizeof(New_String),"%s%s%s%s%s%s",Colour_Array[random(6)],Best,Colour_Array[random(6)],Freeroam,Colour_Array[random(6)],Ever);
+	TextDrawSetString(BFE_TD[0], New_String);
+	return 1;
+}
 
 forward CaptureZone(playerid,zoneid);
 
