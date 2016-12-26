@@ -6,11 +6,11 @@ Bfe is a multimode gamemode created for SAMP servers.The project was initially m
 build 1.
 
 ##Libraries
-*sscanf          -Yless,Emmet,maddinator
-*zcmd            - Zeex
-*mselection      - d0
-*GetVehicleColor - RyDeR
-*gettime         - Jochemd
-*YSI             - Yless,Misiur
-*Samp_Fixer      - Yless,Gammix
+* sscanf          -Yless,Emmet,maddinator
+* zcmd            - Zeex
+* mselection      - d0
+* GetVehicleColor - RyDeR
+* gettime         - Jochemd
+* YSI             - Yless,Misiur
+* Samp_Fixer      - Yless,Gammix
 
